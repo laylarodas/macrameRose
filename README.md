@@ -1,11 +1,13 @@
 # MACRAMÉ ROSE
 
 Venta de artículos de macramé. De acuerdo a las siguientes categorías:   
-1.- Porta masetas.  
+1.- Porta macetas.  
 2.- Almohadones.  
-3.- Mantas, cortinas.  
-4.- Accesorios.  
-5.- Adornos.  
+3.- Bolsos.  
+4.- Cortinas.  
+5.- Accesorios.  
+6.- Adornos.  
+7.- Espejos.
 
 
 
@@ -30,7 +32,8 @@ Personas adultas, que aprecian los productos hechos a mano. Que se encuentren en
 [deco olive](https://www.olive.com.ar/)  
 [alfombras awanay](https://www.awanay.com.ar/)  
 [designcarpet](https://designcarpetsalfombras.mitiendanube.com/)  
-[lola home](https://lolahome.es/)
+[lola home](https://lolahome.es/)  
+[etsy](https://www.etsy.com/)
 
 
 ### Integrante:  
