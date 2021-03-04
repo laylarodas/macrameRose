@@ -14,8 +14,8 @@ app.set('view engine','ejs');
 
 app.use(express.static(publicPath));
 
-app.listen(process.env.PORT || 4000, ()=>{
-    console.log('Servidor corriendo en el puerto 4000');
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log('Servidor corriendo en el puerto 3000');
 });
 
 //rutas estaticas
