@@ -35,6 +35,9 @@ Personas adultas, que aprecian los productos hechos a mano. Que se encuentren en
 [lola home](https://lolahome.es/)  
 [etsy](https://www.etsy.com/)
 
+### Tablero de Trabajo:  
+[trello-macraméRose](https://trello.com/b/5rg3jMe9/macram%C3%A9rose)
+
 
 ### Integrante:  
 - Layla Rodas, 27 años de edad, de Argentina.
