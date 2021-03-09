@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/headerUsers') %>
+    <main id="main-register">
+        <div class="title-register">
+            <h2>CREAR CUENTA</h2>
+        </div>
+        <form action="/" method="POST" class="create-form">
+            <div class="div-network">
+                <div class="div-facebookregister"><a href="http://www.facebook.com/">REGISTRARSE CON FACEBOOK</a>
+                </div>
+                <div class="div-googleregister"><a href="http://www.google.com/">REGISTRARSE CON GOOGLE</a>
+                </div>
+                <div class="break">
+                    <p>o</p>
+                </div>
+            </div>
+            <div class="div-formregister">
+                <div class="control-form">
+                    <label for="usuario">USUARIO</label>
+                    <input id="usuario" type="text" name="usuario" class="control" placeholder="Nombre de usuario">
+                </div>
+                <div class="control-form">
+                    <label for="email">EMAIL</label>
+                    <input id="email" type="email" name="email" class="control" placeholder="Ej: abcd@efgh.com">
+                </div>
+                <div class="control-form">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
+                </div>
+                <div class="control-form">
+                    <label>CONFIRMAR CONTRASEÑA</label>
+                    <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
+                </div>
+                <div class="div-button-register">
+                    <button type="submit" class="button-form">CREAR CUENTA</button>
+                    <button type="reset" class="button-form">BORRAR</button>
+                </div>
+                <div class="div-register-p">
+                    <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+                </div>
+            </div>
+            
+        </form>
+    </main>
+    <%- include('../partials/footerUsers') %>
+</body>
+</html>

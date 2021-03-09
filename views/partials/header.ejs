@@ -1,0 +1,45 @@
+<header>
+    <div id="header-mobile">
+        <div id="burguer-menu">
+            <i class="fas fa-bars"></i>
+            <p>INICIO</p>
+        </div>
+        <div id="header-search"><i class="fas fa-search"></i></div>
+    </div>
+    <div id="top-header" class="hidden">
+        <div id="div-search">
+            <form action="/" method="GET" class="form-search-header">
+                <input type="text" name="search" placeholder="Buscar" class="area-search">
+                <button type="submit" class="button-search"><i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div id="login-register">
+            <ul>
+                <li class="border-right hover-color"><i class="fas fa-user"></i><a href="/register"><strong> CREAR CUENTA</strong></a></li>
+                <li class="hover-color"><a href="/login">INICIAR SESIÓN</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="bottom-header">
+        <ul id="ul-header">
+            <li id="header-logo">
+                <a href="/"><img src="img/Logo/logo.jpg" alt="logo" id="logo"></a>
+            </li>
+            <li id="nav-header">
+                <nav id="navbar">
+                    <ul>
+                        <li class="border-bottom" ><a href="/">INICIO</a></li>
+                        <li class="border-bottom" ><a href="/productsList">PRODUCTOS</a></li>
+                        <li class="hidden border-bottom"><a href="#">ENVÍOS</a></li>
+                        <li class="hidden border-bottom"><a href="#">CONTACTO</a></li>
+                        <li class="cart"><a href="/productCart"><i class="fas fa-shopping-cart"></i>CARRITO</a></li>
+                    </ul>
+                </nav>
+            </li>
+            <li id="shop-cart" class="hidden">
+                <a href="/productCart"><img src="/img/icons/cart-shop.png" alt="carrito"></a>
+            </li>
+        </ul>
+    </div>
+</header>

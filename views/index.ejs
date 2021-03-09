@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+    <section id="banner">
+        <img src="img/banner/banner-almohadones-2.jpg" alt="banner-almohadones">
+    </section>
+    <main id="main">
+        <section id="categories">
+            <h3>PRINCIPALES CATEGORÍAS</h3>
+            <div id="box-categories">
+                <article class="product-category">
+                    <img src="img/products/portamaceta3.jpg" alt="portamaceta3" class="img-width">
+                    <a href="#"><h4>PORTA MACETAS</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/almohadon5.jpg" alt="almohadon5" class="img-width">
+                    <a href=""><h4>ALMOHADONES</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/espejo5.jpg" alt="espejo5" class="img-width">
+                    <a href=""><h4>ESPEJOS</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/cortina3.jpg" alt="cortina3" class="img-width">
+                    <a href=""><h4>CORTINAS</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/adorno4.jpg" alt="adorno4" class="img-width">
+                    <a href=""><h4>ADORNOS</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/bolso2.jpg" alt="bolso2" class="img-width">
+                    <a href=""><h4>BOLSOS Y CARTERAS</h4></a>
+                </article>
+                <article class="product-category">
+                    <img src="img/products/accesorio1.jpg" alt="accesorio1" class="img-width">
+                    <a href=""><h4>ACCESORIOS</h4></a>
+                </article>
+            </div>
+        </section>
+        <section id="featured-products">
+            <h3>PRODUCTOS DESTACADOS</h3>
+            <div id="box-products">
+                <article class="article-product">
+                    <img src="img/products/portamaceta1.jpg" alt="portamaceta1" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">COLGADOR DE PLANTAS GRANDE. DECORACION MINIMALISTA MODERNA</h4>
+                        <p class="price hidden-product">$2.310</p>
+                        <p class="discount hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/almohadon2.jpg" alt="almohadon2" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">ALMOHADON CUBIERTO EN MACRAMÉ. DECORACION MODERNA</h4>
+                        <p class="price hidden-product">$2.420</p>
+                        <p class="discount hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/collar1.jpg" alt="collar1" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">COLLAR MICRO MACRAMÉ CON CUARZO ROSA Y TURQUESA.</h4>
+                        <p class="price hidden-product">$11.540</p>
+                        <p class="discount hidden-product">20% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/espejo2.jpg" alt="espejo2" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">ESPEJO DE PARED REDONDO ESTILO MANDALA</h4>
+                        <p class="price hidden-product">$4.280</p>
+                        <p class="discount hidden-product">15% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/cortina2.jpg" alt="cortina2" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">CORTINA EN MACRAMÉ DECORACION GEOMETRICA</h4>
+                        <p class="price hidden-product">$9.030</p>
+                        <p class="discount hidden-product">15% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/portamaceta2.png" alt="portamaceta2" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">PORTA MACETA TEJIDO MACRAMÉ CRUDO CON BASE DE MADERA</h4>
+                        <p class="price hidden-product">$2.600</p>
+                        <p class="discount hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/bolso1.jpg" alt="bolso1" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">BOLSO DE MACRAMÉ</h4>
+                        <p class="price hidden-product">$2.824</p>
+                        <p class="discount hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-product">
+                    <img src="img/products/adorno4.jpg" alt="adorno4" class="img-width">
+                    <div id="description-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class="name-product">MACRAMÉ GRANDE- COLGANTE DE PARED PLUMAS</h4>
+                        <p class="price hidden-product">$3.840</p>
+                        <p class="discount hidden-product">15% off</p>
+                    </div>
+                </article>
+            </div>
+            <div id="button-product">
+                <form action="/productsList" method="GET">
+                    <button type="submit" class="design-button-product">VER TODOS LOS PRODUCTOS</button>
+                </form>
+            </div>
+        </section>
+        <hr>
+        <%- include('./partials/infoShop') %>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

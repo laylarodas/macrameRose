@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main id="main-detail-product">
+        <div class="div-titles-detail">
+            <ul class="ul-titles-detail">
+                <li><a href="#">INICIO</a></li>
+                <i class="fas fa-angle-right"></i>
+                <li><a href="#">CATEGORIA</a></li>
+                <i class="fas fa-angle-right"></i>
+                <li>PRODUCTO</li>
+            </ul>
+        </div>
+        <section class="section-detail-product">
+            <h2>COLGANTE PARA PARED- MACRAMÉ GRANDE- DECORACION BOHO</h2>
+            <article class="article-detail-product">
+                <div class="div-img-detail">
+                    <img src="img/products/adorno1.jpg" alt="adorno1" class="img-detail">
+                </div>
+                <div id="descripcion-price-product">
+                    <p class="price-detail">$2.989</p>
+                    <p class="discount-detail">10% off</p>
+                    <div class="div-a-detail">
+                        <a href="#">MEDIOS DE PAGO</a>
+                    </div>
+                </div>
+            </article>
+            <div>
+                <form action="" class="form-detail">
+                    <button type="submit" class="button-detail-add">AGREGAR AL CARRITO</button>
+                </form>
+            </div>
+            <div class="description-detail-product">
+                <h4>DESCRIPCIÓN</h4>
+                <p>Está hecho de cordón de algodón trenzado de calidad blanco/beige natural de 5 mm, y está colgado en una hermosa rama de madera a la deriva.DIMENSIONES:- Ancho del macramé: 74 cm - Altura del macramé: 89,5 cm - longitud del espiga: 87 cm</p>
+            </div>
+            <div class="features-detail">
+                <div class="features-color">
+                    <h4>Color:</h4>
+                    <p>CRUDO</p>
+                </div>
+                <div class="features-size">
+                    <h4>Tamaño:</h4>
+                    <p>MEDIANO</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="section-comment-detail">
+            <div>
+                <form action="" method="GET" class="form-comment-detail">
+                    <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="AGREGAR UN COMENTARIO" class="area-comment-deatil"></textarea>
+                </form>
+            </div>
+        </section>
+        <section class="related-products">
+            <h3>PRODUCTOS RELACIONADOS</h3>
+            <div class="box-products-detail">
+                <article class="article-products-detail">
+                    <div>
+                        <img src="img/products/adorno2.jpg" alt="adorno2" class="img-detail">
+                    </div>
+                    <div id="description-related-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class=" name-product-detail">COLGANTE DE PLUMAS BOHO-CHIC</h4>
+                        <p class="price-related hidden-product">$1.840</p>
+                        <p class="discount-related hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-products-detail">
+                    <img src="img/products/adorno3.jpg" alt="adorno3" class="img-detail">
+                    <div id="description-related-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class=" name-product-detail">MACRAMÉ PARED DECORACION BOHO COLGANDO PLUMAS</h4>
+                        <p class="price-related hidden-product">$2.570</p>
+                        <p class="discount-related hidden-product">10% off</p>
+                    </div>
+                </article>
+                <article class="article-products-detail">
+                    <img src="img/products/adorno4.jpg" alt="adorno4" class="img-detail">
+                    <div id="description-related-product">
+                        <i class="fas fa-truck"></i>
+                        <h4 class=" name-product-detail">MACRAMÉ GRANDE- COLGANTE DE PARED PLUMAS</h4>
+                        <p class="hidden-product price-related">$3.840</p>
+                        <p class="hidden-product discount-related">15% off</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <hr>
+        <%- include('../partials/infoShop') %>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
