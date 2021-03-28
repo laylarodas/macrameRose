@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head') %>
+    <%- include('partials/head',{title: 'Register - Macramé Rose'}) %>
 <body>
-    <%- include('../partials/headerUsers') %>
+    <%- include('partials/headerUsers') %>
     <main id="main-register">
         <div class="title-register">
             <h2>CREAR CUENTA</h2>
@@ -27,6 +27,10 @@
                     <input id="email" type="email" name="email" class="control" placeholder="Ej: abcd@efgh.com">
                 </div>
                 <div class="control-form">
+                    <label>Añadir Avatar:</label>
+                        <input type="file" name="image" class="control">
+                </div>
+                <div class="control-form">
                     <label>CONTRASEÑA</label>
                     <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
                 </div>
@@ -45,6 +49,6 @@
             
         </form>
     </main>
-    <%- include('../partials/footerUsers') %>
+    <%- include('partials/footerUsers') %>
 </body>
 </html>

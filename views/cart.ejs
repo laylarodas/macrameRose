@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head') %>
+    <%- include('partials/head',{title: 'Carrito de compras - Macramé Rose'}) %>
 <body>
-    <%- include('../partials/header') %>
+    <%- include('partials/header') %>
     <main id="main-cart">
         <div id="div-titles-cart">
             <h3>CARRITO DE COMPRAS</h3>
@@ -22,12 +22,16 @@
                 </div>
                 <div>
                     <article class="article-product-cart">
-                        <div class="div-img-cart"><img src="img/products/almohadon3.jpg" class="img-cart" alt="almohadon3">
+                        <div class="div-img-cart"><img src="/img/products/almohadon3.jpg" class="img-cart" alt="almohadon3">
                         </div>
                         <div class="div-cart-description">
                             <h5>ALMOHADON DECORATIVO MACRAMÉ NEGRO</h5>
                             <p class="price-cart">$2.420</p>
                             <p class="discount-cart">10% off</p>
+                            <form action="#" method="GET" class="form-cart">
+                                <label>Cantidad: </label>
+                                <input type="number" name="amount">
+                            </form>
                         </div>
                         <div class="div-cart-subtotal hidden-subtotal-cart">
                             <p>$2.420</p>
@@ -35,12 +39,16 @@
                     </article>
                     <article class="article-product-cart">
                         <div class="div-img-cart">
-                            <img src="img/products/adorno2.jpg" class="img-cart" alt="adorno2">
+                            <img src="/img/products/adorno2.jpg" class="img-cart" alt="adorno2">
                         </div>
                         <div class="div-cart-description">
                             <h5>COLGANTE DE PLUMAS BOHO-CHIC</h5>
                             <p class="price-cart">$2.570</p>
                             <p class="discount-cart">10% off</p>
+                            <form action="#" method="GET" class="form-cart">
+                                <label>Cantidad: </label>
+                                <input type="number" name="amount">
+                            </form>
                         </div>
                         <div class="div-cart-subtotal hidden-subtotal-cart">
                             <p>$2.570</p>
@@ -74,7 +82,7 @@
                         </form>
                     </div>
                     <div class="div-all-products-cart">
-                        <a href="/productsList">Ver mas productos</a>
+                        <a href="/products">Ver mas productos</a>
                     </div>
                 </div>
             </section>
@@ -83,7 +91,7 @@
             <h3>AGREGAR AL CARRITO</h3>
             <div class="box-products-add">
                 <article class="article-product-add">
-                    <img src="img/products/adorno3.jpg" alt="adorno3" class="img-cart">
+                    <img src="/img/products/adorno3.jpg" alt="adorno3" class="img-cart">
                     <div class="description-product-add">
                         <i class="fas fa-truck"></i>
                         <h4 class="name-product-add">MACRAMÉ PARED DECORACION BOHO COLGANDO PLUMAS</h4>
@@ -97,7 +105,7 @@
                     </div>
                 </article>
                 <article class="article-product-add">
-                    <img src="img/products/almohadon1.jpg" alt="almohadon1" class="img-cart">
+                    <img src="/img/products/almohadon1.jpg" alt="almohadon1" class="img-cart">
                     <div class="description-product-add">
                         <i class="fas fa-truck"></i>
                         <h4 class="name-product-add">ALMOHADON DECORATIVO MACRAMÉ CRUDO. ESTILO BOHO</h4>
@@ -112,7 +120,7 @@
                     </div>
                 </article>
                 <article class="article-product-add">
-                    <img src="img/products/adorno4.jpg" alt="adorno4" class="img-cart">
+                    <img src="/img/products/adorno4.jpg" alt="adorno4" class="img-cart">
                     <div class="description-product-add">
                         <i class="fas fa-truck"></i>
                         <h4 class="name-product-add">MACRAMÉ GRANDE- COLGANTE DE PARED PLUMAS</h4>
@@ -126,7 +134,7 @@
                     </div>
                 </article>
                 <article class="article-product-add">
-                    <img src="img/products/almohadon4.jpg" alt="almohadon4" class="img-cart">
+                    <img src="/img/products/almohadon4.jpg" alt="almohadon4" class="img-cart">
                     <div class="description-product-add">
                         <i class="fas fa-truck"></i>
                         <h4 class="name-product-add">ALMOHADON RÚSTICO- BOHEMIO CHIC</h4>
@@ -142,6 +150,6 @@
             </section>
             </div>
     </main>
-    <%- include('../partials/footer') %>
+    <%- include('partials/footer') %>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head') %>
+    <%- include('partials/head', {title: product.name }) %>
 <body>
-    <%- include('../partials/header') %>
+    <%- include('partials/header') %>
     <main id="main-detail-product">
         <div class="div-titles-detail">
             <ul class="ul-titles-detail">
@@ -10,47 +10,62 @@
                 <i class="fas fa-angle-right"></i>
                 <li><a href="#">CATEGORIA</a></li>
                 <i class="fas fa-angle-right"></i>
-                <li>PRODUCTO</li>
+                <li><%= product.name %></li>
             </ul>
         </div>
         <section class="section-detail-product">
-            <h2>COLGANTE PARA PARED- MACRAMÉ GRANDE- DECORACION BOHO</h2>
+            <h2><%= product.name %></h2>
             <article class="article-detail-product">
                 <div class="div-img-detail">
-                    <img src="img/products/adorno1.jpg" alt="adorno1" class="img-detail">
+                    <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-detail">
                 </div>
                 <div id="descripcion-price-product">
-                    <p class="price-detail">$2.989</p>
-                    <p class="discount-detail">10% off</p>
+                    <% let finalPrice = toThousand((product.price - (product.price * product.discount / 100)).toFixed(0));%>
+                    <% if (product.discount > 0) { 	%>
+                        <p class="discount-detail">
+                            <span><%= toThousand(product.price) %></span>
+                            /
+                            <b><%= product.discount %>% OFF</b>
+                        </p>
+                        <p class="price-detail">$<%= finalPrice %></p>
+                    <% } else { %>
+                        <p class="price-detail">$<%= finalPrice %></p>
+                    <% } %>  
                     <div class="div-a-detail">
                         <a href="#">MEDIOS DE PAGO</a>
                     </div>
                 </div>
             </article>
             <div>
-                <form action="" class="form-detail">
+                <form action="/cart" class="form-detail">
                     <button type="submit" class="button-detail-add">AGREGAR AL CARRITO</button>
                 </form>
             </div>
             <div class="description-detail-product">
                 <h4>DESCRIPCIÓN</h4>
-                <p>Está hecho de cordón de algodón trenzado de calidad blanco/beige natural de 5 mm, y está colgado en una hermosa rama de madera a la deriva.DIMENSIONES:- Ancho del macramé: 74 cm - Altura del macramé: 89,5 cm - longitud del espiga: 87 cm</p>
+                <p><%= product.description %></p>
             </div>
             <div class="features-detail">
                 <div class="features-color">
                     <h4>Color:</h4>
-                    <p>CRUDO</p>
+                    <p><%= product.color %></p>
                 </div>
                 <div class="features-size">
                     <h4>Tamaño:</h4>
-                    <p>MEDIANO</p>
+                    <p><%= product.size %></p>
                 </div>
+            </div>
+            <div class="div-edit-delete">
+                <a href="/products/edit/<%= product.id %>">EDITAR PRODUCTO</a>
+                <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                    <button type="submit">ELIMINAR</button>
+                </form>
             </div>
         </section>
         <hr>
         <section class="section-comment-detail">
             <div>
-                <form action="" method="GET" class="form-comment-detail">
+                <form action="#" method="GET" class="form-comment-detail">
                     <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="AGREGAR UN COMENTARIO" class="area-comment-deatil"></textarea>
                 </form>
             </div>
@@ -60,7 +75,7 @@
             <div class="box-products-detail">
                 <article class="article-products-detail">
                     <div>
-                        <img src="img/products/adorno2.jpg" alt="adorno2" class="img-detail">
+                        <img src="/img/products/adorno2.jpg" alt="adorno2" class="img-detail">
                     </div>
                     <div id="description-related-product">
                         <i class="fas fa-truck"></i>
@@ -70,7 +85,7 @@
                     </div>
                 </article>
                 <article class="article-products-detail">
-                    <img src="img/products/adorno3.jpg" alt="adorno3" class="img-detail">
+                    <img src="/img/products/adorno3.jpg" alt="adorno3" class="img-detail">
                     <div id="description-related-product">
                         <i class="fas fa-truck"></i>
                         <h4 class=" name-product-detail">MACRAMÉ PARED DECORACION BOHO COLGANDO PLUMAS</h4>
@@ -79,7 +94,7 @@
                     </div>
                 </article>
                 <article class="article-products-detail">
-                    <img src="img/products/adorno4.jpg" alt="adorno4" class="img-detail">
+                    <img src="/img/products/adorno4.jpg" alt="adorno4" class="img-detail">
                     <div id="description-related-product">
                         <i class="fas fa-truck"></i>
                         <h4 class=" name-product-detail">MACRAMÉ GRANDE- COLGANTE DE PARED PLUMAS</h4>
@@ -90,8 +105,8 @@
             </div>
         </section>
         <hr>
-        <%- include('../partials/infoShop') %>
+        <%- include('partials/infoShop') %>
     </main>
-    <%- include('../partials/footer') %>
+    <%- include('partials/footer') %>
 </body>
 </html>

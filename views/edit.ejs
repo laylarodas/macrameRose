@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', {title: 'Editando:' + productToEdit.name}) %>
+<body>
+    <%- include('partials/headerCreate') %>
+    <main id="main-productCreate">
+        <section id="section-title-productCreate">
+            <h2>ESTAS EDITANDO: <%= productToEdit.name %> </h2>
+        </section>
+        <section id="section-form-productCreate">
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-productCreate">
+                <div class="div-informationproduct">
+                    <div id="div-name-productCreate">
+                        <label>Nombre del producto:</label>
+                        <input type="text" name="name" value="<%= productToEdit.name %>" id="name-newproduct" placeholder="Nombre del producto">
+                    </div>
+                    <h4>Fotos *</h4>
+                    <div id="div-photo-productCreate">
+                        <label>Añadir una foto:</label>
+                        <input type="file" name="image" accept=".jpg .png" class="input-photo-product">
+                    </div>
+                    <h4>Información del Producto</h4>
+                    <div id="div-description-productCreate">
+                        <label>Descripcion:</label>
+                        <textarea name="description" class="textarea-description"><%= productToEdit.description %></textarea>
+                    </div>
+                </div>
+                <div class="div-features">
+                    <div id="div-categories-productCreate">
+                        <label>Seleccione Categoría:</label>
+                        <input type="radio" name="category" value="portaMacetas" <%= productToEdit.category=='portaMacetas' ? 'checked' :''%> class="input-categories"> PORTA MACETAS<label></label>
+                        <input type="radio" name="category" value="almohadones" <%= productToEdit.category=='almohadones' ? 'checked' :''%> class="input-categories"> ALMOHADONES <label></label>
+                        <input type="radio" name="category" value="espejos" <%= productToEdit.category=='espejos' ? 'checked' :''%> class="input-categories"> ESPEJOS<label></label>
+                        <input type="radio" name="category" value="cortinas" <%= productToEdit.category=='cortinas' ? 'checked' :''%> class="input-categories"> CORTINAS<label></label>
+                        <input type="radio" name="category" value="adornos" <%= productToEdit.category=='adornos' ? 'checked' :''%> class="input-categories"> ADORNOS<label></label>
+                        <input type="radio" name="category" value="bolsosCarteras" <%= productToEdit.category=='bolsosCarteras' ? 'checked' :''%> class="input-categories"> BOLSOS Y CARTERAS<label></label>
+                        <input type="radio" name="category" value="accesorios" <%= productToEdit.category=='accesorios' ? 'checked' :''%> class="input-categories"> ACCESORIOS<label></label>
+                    </div>
+                    <div id="div-add-category-productCreate">
+                        <label>Agregar Catergoria:(Opcional)</label>
+                        <input type="text" name="newcategory" class="input-newcategory">
+                    </div>
+                    <!-- variantes -->
+                    <h4 id="h4-variants">Variantes</h4>
+                    <div id="div-variants-productCreate">
+                        <div id="color-variant">
+                            <label>Color:</label>
+                            <select name="color">
+                                <option value="CRUDO" <%= productToEdit.color=='CRUDO' ? 'selected' :''%> >CRUDO</option>
+                                <option value="NEGRO" <%= productToEdit.color=='NEGRO' ? 'selected' :''%>>NEGRO</option>
+                                <option value="VERDE" <%= productToEdit.color=='VERDE' ? 'selected' :''%>>VERDE</option>
+                                <option value="BEIGE" <%= productToEdit.color=='BEIGE' ? 'selected' :''%>>BEIGE</option>
+                                <option value="CHOCOLATE" <%= productToEdit.color=='CHOCOLATE' ? 'selected' :''%>>CHOCOLATE</option>
+                                <option value="ROSA" <%= productToEdit.color=='ROSA' ? 'selected' :''%>>ROSA</option>
+                                <option value="GRIS" <%= productToEdit.color=='GRIS' ? 'selected' :''%>>GRIS</option>
+                                <option value="ROJO" <%= productToEdit.color=='ROJO' ? 'selected' :''%>>ROJO</option>
+                            </select>
+                        </div>
+                        <div id="size-variant">
+                            <label>Tamaño:</label>
+                            <select name="size">
+                                <option value="PEQUEÑO" <%= productToEdit.size=='PEQUEÑO' ? 'selected' :''%>>PEQUEÑO</option>
+                                <option value="MEDIANO" <%= productToEdit.size=='MEDIANO' ? 'selected' :''%>>MEDIANO</option>
+                                <option value="GRANDE" <%= productToEdit.size=='GRANDE' ? 'selected' :''%>>GRANDE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-inventory">
+                    <h4 id="h4-price">Inventario y Precio</h4>
+                <div id="div-price-productCreate">
+                    <div id="price-productCreate">
+                        <label>Precio:</label>
+                        <input type="text" name="price" value="<%= productToEdit.price %>" >
+                    </div>
+                    <div id="price-productCreate">
+                        <label>Descuento:</label>
+                        <input type="text" name="discount" value="<%= productToEdit.discount %>" >
+                    </div>
+                    <div id="stock-productCreate">
+                        <label>Stock:</label>
+                        <input type="number" name="stock" value="<%= productToEdit.stock %>">
+                    </div>
+                </div>
+                </div>
+                <div class="div-buttons">
+                    <div id="buttons-productsCreate">
+                        <button type="reset" class="design-button-productCreate">BORRAR</button>
+                        <button type="submit" class="design-button-productCreate">CONFIRMAR</button>
+                        <a href="/products" class="design-button-productCreate">CANCELAR</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <%- include('partials/footerUsers') %>
+</body>
+</html>

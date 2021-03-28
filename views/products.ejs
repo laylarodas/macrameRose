@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head',{title: 'Todos los productos - Macramé Rose'}) %>
+<body>
+    <%- include('partials/header') %>
+    <main id="main-productsList">
+        <section id="section-title-productsList">
+            <div class="div-titles-productsList">
+                <ul class="ul-titles-productsList">
+                    <li><a href="/">INICIO</a></li>
+                    <i class="fas fa-angle-right"></i>
+                    <li><p>PRODUCTOS</p></li>
+                </ul>
+            </div>
+            <div id="div-title-h2-productsList">
+                <h2>PRODUCTOS</h2>
+            </div>
+        </section>
+        <section id="banner-productsList">
+            <img src="/img/banner-portamacetas-8.jpg" class="img-width" height="400px" alt="banner-products">
+            <h4>Detalles con encanto para tu hogar</h4>
+        </section>
+        <div class="div-a-create">
+            <a href="/products/create">CREAR PRODUCTO</a>
+        </div>
+        <section id="products-filter-productsList">
+            
+            <div id="orden-productsList">
+                <form action="#" method="GET" class="form-orden-productsList">
+                    <div id="div-orden-productsList">
+                        <label>Ordenar por:</label>
+                        <select name="orden" class="select-orden-productsList">
+                        <option value="price-ascending ">Precio: Menor a Mayor</option>
+                        <option value="price-descending">Precio: Mayor a Menor</option>
+                        <option value="a-ascending">A - Z</option>
+                        <option value="a-descending">Z - A</option>
+                        <option value="created-descending">Más Nuevo al más Viejo</option>
+                        <option value="created-ascending">Más Viejo al más Nuevo</option>
+                        <option value="best-selling">Más Vendidos</option>
+                        </select>
+                    </div>
+                </form>
+                <div id="filter-mobile-productsList">
+                    <p>FILTRAR PRODUCTOS</p>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="categories-productsList" class="hidden-filter-productsList">
+                <div class="div-filters-productList">
+                    <h4>CATEGORIAS</h4>
+                    <i class="fas fa-minus"></i>
+                </div>
+                <ul class="ul-categories-productsList">
+                    <li><a href="#">PORTA MACETAS</a></li>
+                    <li><a href="#">ALMOHADONES</a></li>
+                    <li><a href="#">ESPEJOS</a></li>
+                    <li><a href="#">CORTINAS</a></li>
+                    <li><a href="#">ADORNOS</a></li>
+                    <li><a href="#">BOLSOS Y CARTERAS</a></li>
+                    <li><a href="#">ACCESORIOS</a></li>
+                    
+                </ul>
+                <div id="filters-productsList">
+                    <div class="div-filters-productList">
+                        <h4>FILTROS</h4>
+                        <i class="fas fa-minus"></i>
+                    </div>
+                    <div id="filter-color-productsList">
+                        <label>COLOR:</label>
+                        <input type="checkbox" name="color" > CRUDO<label></label>
+                        <input type="checkbox" name="color"> NEGRO<label></label>
+                        <input type="checkbox" name="color"> VERDE<label></label>
+                        <input type="checkbox" name="color"> BEIGE<label></label>
+                        <input type="checkbox" name="color"> MARRON<label></label>
+                        <input type="checkbox" name="color"> ROSA<label></label>
+                        <input type="checkbox" name="color"> GRIS<label></label>
+                        <input type="checkbox" name="color"> ROJO<label></label>
+                    </div>
+                    <div id="filter-size-productsList">
+                        <label>TAMAÑO:</label>
+                        <input type="checkbox" name="tamaño"> PEQUEÑO<label></label>
+                        <input type="checkbox" name="tamaño"> MEDIANO<label></label>
+                        <input type="checkbox" name="tamaño"> GRANDE<label></label>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="productsList">
+                <div id="box-productsList">
+                    <% products.forEach(product => { 
+                        let finalPrice = product.price - (product.price * product.discount / 100); 
+                        %>
+                        <article class="article-productsList">
+                            <a href="/products/detail/<%= product.id %>">
+                                <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-width">
+                                <div id="description-product">
+                                    <i class="fas fa-truck"></i>
+                                    <h4 class="name-product"><%= product.name %></h4>
+                                    <p class="price hidden-product">$<%= toThousand(finalPrice.toFixed(0)) %></p>
+                                    <% if(product.discount > 0) { %>
+                                        <p class="discount hidden-product"><%= product.discount %>% off</p>
+                                    <% } %>
+                                </div>
+                            </a>
+                        </article>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+
+        <hr>            
+        <%- include('partials/infoShop') %>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

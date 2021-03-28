@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head') %>
+    <%- include('partials/head',{title: 'Formulario de creación'}) %>
 <body>
-    <%- include('../partials/headerCreate') %>
+    <%- include('partials/headerCreate') %>
     <main id="main-productCreate">
         <section id="section-title-productCreate">
             <h2>AÑADIR UN PRODUCTO</h2>
         </section>
         <section id="section-form-productCreate">
-            <form action="#" method="GET" class="form-productCreate">
+            <form action="/products" method="POST" class="form-productCreate" enctype="multipart/form-data">
                 <div class="div-informationproduct">
                     <div id="div-name-productCreate">
                         <label>Nombre del producto:</label>
-                        <input type="text" name="titñe" id="name-newproduct" placeholder="Nombre del producto">
+                        <input type="text" name="name" id="name-newproduct" placeholder="Nombre del producto">
                     </div>
                     <h4>Fotos *</h4>
                     <div id="div-photo-productCreate">
                         <label>Añadir una foto:</label>
-                        <input type="file" name="photo-product" accept=".jpg .png" class="input-photo-product"  multiple>
+                        <input type="file" name="image" class="input-photo-product">
                     </div>
                     <h4>Información del Producto</h4>
                     <div id="div-description-productCreate">
                         <label>Descripcion:</label>
-                        <input type="text" name="description" class="input-description">
+                        <textarea name="description" class="textarea-description"></textarea>
                     </div>
                 </div>
                 <div class="div-features">
                     <div id="div-categories-productCreate">
                         <label>Seleccione Categoría:</label>
-                        <input type="radio" name="perfil" class="input-categories"> PORTA MACETAS<label></label>
-                        <input type="radio" name="perfil" class="input-categories"> ALMOHADONES <label></label>
-                        <input type="radio" name="perfil" class="input-categories"> ESPEJOS<label></label>
-                        <input type="radio" name="perfil" class="input-categories"> CORTINAS<label></label>
-                        <input type="radio" name="perfil" class="input-categories"> ADORNOS<label></label>
-                        <input type="radio" name="perfil" class="input-categories"> BOLSOS Y CARTERAS<label></label>
-                        <input type="radio" name="perfil" class="input-categories"> ACCESORIOS<label></label>
+                        <input type="radio" name="category" value="portaMacetas" class="input-categories"> PORTA MACETAS<label></label>
+                        <input type="radio" name="category" value="almohadones" class="input-categories"> ALMOHADONES <label></label>
+                        <input type="radio" name="category" value="espejos" class="input-categories"> ESPEJOS<label></label>
+                        <input type="radio" name="category" value="cortinas" class="input-categories"> CORTINAS<label></label>
+                        <input type="radio" name="category" value="adornor" class="input-categories"> ADORNOS<label></label>
+                        <input type="radio" name="category" value="bolsosCarteras" class="input-categories"> BOLSOS Y CARTERAS<label></label>
+                        <input type="radio" name="category" value="Accesorios" class="input-categories"> ACCESORIOS<label></label>
                     </div>
                     <div id="div-add-category-productCreate">
                         <label>Agregar Catergoria:(Opcional)</label>
-                        <input type="text" name="new-category" class="input-newcategory">
+                        <input type="text" name="newcategory" class="input-newcategory">
                     </div>
                     <!-- variantes -->
                     <h4 id="h4-variants">Variantes</h4>
                     <div id="div-variants-productCreate">
                         <div id="color-variant">
                             <label>Color:</label>
-                            <select name="select-color">
-                                <option value="crudo">CRUDO</option>
-                                <option value="negro">NEGRO</option>
-                                <option value="verde">VERDE</option>
-                                <option value="beige">BEIGE</option>
-                                <option value="chocolate">CHOCOLATE</option>
-                                <option value="rosa">ROSA</option>
-                                <option value="gris">GRIS</option>
-                                <option value="rojo">ROJO</option>
+                            <select name="color">
+                                <option value="CRUDO">CRUDO</option>
+                                <option value="NEGRO">NEGRO</option>
+                                <option value="VERDE">VERDE</option>
+                                <option value="BEIGE">BEIGE</option>
+                                <option value="CHOCOLATE">CHOCOLATE</option>
+                                <option value="ROSA">ROSA</option>
+                                <option value="GRIS">GRIS</option>
+                                <option value="ROJO">ROJO</option>
                             </select>
                         </div>
                         <div id="size-variant">
                             <label>Tamaño:</label>
-                            <select name="select-size">
-                                <option value="pequeño">PEQUEÑO</option>
-                                <option value="mediano">MEDIANO</option>
-                                <option value="grandes">GRANDE</option>
+                            <select name="size">
+                                <option value="PEQUEÑO">PEQUEÑO</option>
+                                <option value="MEDIANO">MEDIANO</option>
+                                <option value="GRANDE">GRANDE</option>
                             </select>
                         </div>
                     </div>
@@ -87,12 +87,12 @@
                     <div id="buttons-productsCreate">
                         <button type="reset" class="design-button-productCreate">BORRAR</button>
                         <button type="submit" class="design-button-productCreate">CONFIRMAR</button>
-                        <button type="reset" class="design-button-productCreate">CANCELAR</button>
+                        <a href="/products" class="design-button-productCreate">CANCELAR</a>
                     </div>
                 </div>
             </form>
         </section>
     </main>
-    <%- include('../partials/footerUsers') %>
+    <%- include('partials/footerUsers') %>
 </body>
 </html>
