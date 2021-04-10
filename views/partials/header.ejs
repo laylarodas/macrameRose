@@ -8,17 +8,28 @@
     </div>
     <div id="top-header" class="hidden">
         <div id="div-search">
-            <form action="/" method="GET" class="form-search-header">
-                <input type="text" name="search" placeholder="Buscar" class="area-search">
+            <form action="/search" method="GET" class="form-search-header">
+                <input type="text" name="keywords" placeholder="Buscar" class="area-search">
                 <button type="submit" class="button-search"><i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
         <div id="login-register">
-            <ul>
-                <li class="border-right hover-color"><i class="fas fa-user"></i><a href="/register"><strong> CREAR CUENTA</strong></a></li>
-                <li class="hover-color"><a href="/login">INICIAR SESIÓN</a></li>
-            </ul>
+            <% if (locals.isLogged) { %>
+                <ul>
+                    <li class="border-right hover-color">
+                        <a href="/user/profile" class="profile-a">
+                            <img src="/img/avatars/<%= locals.userLogged.avatar %>" class="user-avatar-header" alt="avatar">
+                        <strong>HOLA <%= locals.userLogged.name.toUpperCase() %>!</strong></a>
+                    </li>
+                    <li class="hover-color logout-li"><a href="/user/logout">CERRAR SESIÓN</a></li>
+                </ul>
+            <% } else { %>
+                <ul>
+                    <li class="border-right hover-color"><i class="fas fa-user"></i><a href="/user/register"><strong> CREAR CUENTA</strong></a></li>
+                    <li class="hover-color"><a href="/user/login">INICIAR SESIÓN</a></li>
+                </ul>
+            <% } %> 
         </div>
     </div>
     <div id="bottom-header">
@@ -31,7 +42,7 @@
                 <li class="border-bottom" ><a href="/products">PRODUCTOS</a></li>
                 <li class="hidden border-bottom"><a href="#"></i>ENVÍOS</a></li>
                 <li class="hidden border-bottom"><a href="#">CONTACTO</a></li>
-                <li class="hidden border-bottom"><a href="#"></i>GIFT CARD</a></li>
+                <li class="hidden border-bottom"><a href="#"></i>ABOUT US</a></li>
                 <li class="cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>CARRITO</a></li>
             </ul>
         </div>

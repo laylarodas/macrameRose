@@ -1,6 +1,6 @@
 # Retrospectiva  
 
-### Retrospectiva del Sprint1  
+### Retrospectiva del Sprint1-2-3-4-5
 
 *Conclusiones para mejorar en el proyecto*
 
@@ -18,6 +18,4 @@ Seguir investigando, conocer nuevas soluciones, o buscar elementos que ayuden a 
 No estancarse ante alguna complicacion para llevar a cabo una tarea. Consultar.  
 
 5. **Dejar de hacer:**  
-Reducir tiempos entre actividad y actividad, para llevar un ritmo constante.
-
-
+Reducir tiempos entre actividad y actividad, para llevar un ritmo constante.  

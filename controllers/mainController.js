@@ -18,7 +18,13 @@ const mainController = {
         //todavia no esta creada esta pagina
     },
     search: (req,res) =>{
-        res.send('Search');
+        let search = req.query.keywords;
+        let productsToSearch = products.filter(product => product.name.toLowerCase().includes(search));
+        res.render('results',{
+            products: productsToSearch,
+            search,
+            toThousand,
+        });
     },
     cart:  (req,res) =>{
         //res.sendFile(path.resolve('views/products/productCart.html'));

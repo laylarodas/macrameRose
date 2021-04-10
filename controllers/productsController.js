@@ -21,7 +21,6 @@ const productsController = {
         res.render('create');
     },
     store: (req,res) =>{
-        console.log(req.file);
 
         if(req.file != undefined){
             image = req.file.filename;

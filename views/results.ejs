@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head',{title: 'Resultados de la búsqueda - Macramé Rose'}) %>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="main-results">
+        <section class="section-search">
+            <div>
+                <h3>RESULTADOS DE LA BÚSQUEDA: <%= search.toUpperCase() %> </h3>
+            </div>
+
+            <div id="box-products">
+                <% if (products.length) { %>
+                    <% products.forEach(product => { 
+                        let finalPrice = product.price - (product.price * product.discount / 100); 
+                    %>
+                        <article class="article-product">
+                            <a href="/products/detail/<%= product.id %>">
+                                <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-width">
+                                <div id="description-product">
+                                    <i class="fas fa-truck"></i>
+                                    <h4 class="name-product"><%= product.name %></h4>
+                                    <p class="price hidden-product">$<%= toThousand(finalPrice.toFixed(0)) %> </p>
+                                    <% if(product.discount > 0) { %>
+                                        <p class="discount hidden-product"><%= product.discount %>% off</p>
+                                    <% } %>
+                                </div>
+                            </a>
+                        </article>
+                    <% }) %>
+                
+                <% } else { %>
+                    <div class="without-results">
+                        <h2>No hay productos que coincidan con esa búsqueda</h2>
+				    </div>
+			    <% } %>
+            </div>
+        </section>
+        <hr>
+        <%- include('partials/infoShop') %>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

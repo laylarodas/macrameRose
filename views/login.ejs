@@ -7,14 +7,21 @@
         <div class="title-login">
             <h2>INICIAR SESIÓN</h2>
         </div>
-        <form action="" method="POST" class="design-form">
+        <form action="/user/login" method="POST" class="design-form">
             <div class="div-form">
                 <label id="usuario">EMAIL</label>
-                <input type="email" id="email" name="email" class="input-control" placeholder="Ej: abcd@efgh.com">
+                <input type="text" id="email" name="email" class="input-control" placeholder="Ej: abcd@efgh.com">
+                <% if(locals.errors && errors.email) {%>
+                    <div class="text-danger"><%= errors.email.msg %></div>
+                <% } %>  
             </div>
             <div class="div-form">
                 <label id="password">CONTRASEÑA</label>
                 <input type="password" id="password" name="password" class="input-control" placeholder="Ingrese la contraseña">
+            </div>
+            <div class="rememberUser">
+                <label>Recordar contraseña</label>
+                <input type="checkbox" name="rememberUser">
             </div>
             <div class="div-a">
                 <a href="#">¿Olvidaste tu contraseña?</a>
@@ -23,7 +30,7 @@
                 <button type="submit" class="design-button">INICIAR SESIÓN</button>
             </div>
             <div class="div-p">
-                <p>¿No tienes una cuenta? <a href="/register">Crear cuenta</a></p>
+                <p>¿No tienes una cuenta? <a href="/user/register">Crear cuenta</a></p>
             </div>
             
         </form>
