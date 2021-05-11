@@ -17,7 +17,7 @@
                     <h4>Fotos *</h4>
                     <div id="div-photo-productCreate">
                         <label>Añadir una foto:</label>
-                        <input type="file" name="image" accept=".jpg .png" class="input-photo-product">
+                        <input type="file" name="image"  class="input-photo-product">
                     </div>
                     <h4>Información del Producto</h4>
                     <div id="div-description-productCreate">
@@ -28,13 +28,10 @@
                 <div class="div-features">
                     <div id="div-categories-productCreate">
                         <label>Seleccione Categoría:</label>
-                        <input type="radio" name="category" value="portaMacetas" <%= productToEdit.category=='portaMacetas' ? 'checked' :''%> class="input-categories"> PORTA MACETAS<label></label>
-                        <input type="radio" name="category" value="almohadones" <%= productToEdit.category=='almohadones' ? 'checked' :''%> class="input-categories"> ALMOHADONES <label></label>
-                        <input type="radio" name="category" value="espejos" <%= productToEdit.category=='espejos' ? 'checked' :''%> class="input-categories"> ESPEJOS<label></label>
-                        <input type="radio" name="category" value="cortinas" <%= productToEdit.category=='cortinas' ? 'checked' :''%> class="input-categories"> CORTINAS<label></label>
-                        <input type="radio" name="category" value="adornos" <%= productToEdit.category=='adornos' ? 'checked' :''%> class="input-categories"> ADORNOS<label></label>
-                        <input type="radio" name="category" value="bolsosCarteras" <%= productToEdit.category=='bolsosCarteras' ? 'checked' :''%> class="input-categories"> BOLSOS Y CARTERAS<label></label>
-                        <input type="radio" name="category" value="accesorios" <%= productToEdit.category=='accesorios' ? 'checked' :''%> class="input-categories"> ACCESORIOS<label></label>
+                        <% categories.forEach(category => { %>
+                            <input type="radio" name="categoryId" value="<%= category.id %>"  class="input-categories" <%= productToEdit.categoryId == category.id ? 'checked' : ''%> ><%= category.name.toUpperCase() %><label></label>
+                        <% }) %>
+                        
                     </div>
                     <div id="div-add-category-productCreate">
                         <label>Agregar Catergoria:(Opcional)</label>
@@ -45,23 +42,18 @@
                     <div id="div-variants-productCreate">
                         <div id="color-variant">
                             <label>Color:</label>
-                            <select name="color">
-                                <option value="CRUDO" <%= productToEdit.color=='CRUDO' ? 'selected' :''%> >CRUDO</option>
-                                <option value="NEGRO" <%= productToEdit.color=='NEGRO' ? 'selected' :''%>>NEGRO</option>
-                                <option value="VERDE" <%= productToEdit.color=='VERDE' ? 'selected' :''%>>VERDE</option>
-                                <option value="BEIGE" <%= productToEdit.color=='BEIGE' ? 'selected' :''%>>BEIGE</option>
-                                <option value="CHOCOLATE" <%= productToEdit.color=='CHOCOLATE' ? 'selected' :''%>>CHOCOLATE</option>
-                                <option value="ROSA" <%= productToEdit.color=='ROSA' ? 'selected' :''%>>ROSA</option>
-                                <option value="GRIS" <%= productToEdit.color=='GRIS' ? 'selected' :''%>>GRIS</option>
-                                <option value="ROJO" <%= productToEdit.color=='ROJO' ? 'selected' :''%>>ROJO</option>
+                            <select name="colorId">
+                                <% colors.forEach(color => { %>
+                                    <option value="<%= color.id %> " <%= productToEdit.colorId == color.id ? 'selected' : '' %>><%= color.name.toUpperCase() %> </option>
+                                <% }) %>
                             </select>
                         </div>
                         <div id="size-variant">
                             <label>Tamaño:</label>
-                            <select name="size">
-                                <option value="PEQUEÑO" <%= productToEdit.size=='PEQUEÑO' ? 'selected' :''%>>PEQUEÑO</option>
-                                <option value="MEDIANO" <%= productToEdit.size=='MEDIANO' ? 'selected' :''%>>MEDIANO</option>
-                                <option value="GRANDE" <%= productToEdit.size=='GRANDE' ? 'selected' :''%>>GRANDE</option>
+                            <select name="sizeId">
+                                <% sizes.forEach(size => { %>
+                                    <option value="<%= size.id %> " <%= productToEdit.sizeId == size.id ? 'selected' : ''%> ><%= size.name.toUpperCase() %> </option>
+                                <% }) %>
                             </select>
                         </div>
                     </div>

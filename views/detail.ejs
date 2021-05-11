@@ -8,16 +8,16 @@
             <ul class="ul-titles-detail">
                 <li><a href="#">INICIO</a></li>
                 <i class="fas fa-angle-right"></i>
-                <li><a href="#">CATEGORIA</a></li>
+                <li><a href="#"><%= product.category.name.toUpperCase() %></a></li>
                 <i class="fas fa-angle-right"></i>
-                <li><%= product.name %></li>
+                <li><%= product.name.toUpperCase() %></li>
             </ul>
         </div>
         <section class="section-detail-product">
-            <h2><%= product.name %></h2>
+            <h2><%= product.name.toUpperCase() %></h2>
             <article class="article-detail-product">
                 <div class="div-img-detail">
-                    <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-detail">
+                    <img src="/img/products/<%= product.image %> " alt="<%= product.name %>" class="img-width">
                 </div>
                 <div id="descripcion-price-product">
                     <% let finalPrice = toThousand((product.price - (product.price * product.discount / 100)).toFixed(0));%>
@@ -48,11 +48,11 @@
             <div class="features-detail">
                 <div class="features-color">
                     <h4>Color:</h4>
-                    <p><%= product.color %></p>
+                    <p><%= product.color.name.toUpperCase() %></p>
                 </div>
                 <div class="features-size">
                     <h4>Tamaño:</h4>
-                    <p><%= product.size %></p>
+                    <p><%= product.size.name.toUpperCase() %></p>
                 </div>
             </div>
             <div class="div-edit-delete">

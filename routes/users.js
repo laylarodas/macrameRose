@@ -12,12 +12,15 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/register', guestMiddleware,usersController.register);
 router.post('/register',uploadFile.single('avatar'),validations ,usersController.registerProcess);
 
+/*** EDIT USER ***/
+router.get('/edit/:id', usersController.registerEdit);//VISTA DE FORM DE EDICION DE REGISTRO
+router.put('/update/:id',uploadFile.single('avatar'),validations, usersController.registerUpdate);//GUARDAR DATOS ACTUALIZADOS
 
 router.get('/login', guestMiddleware,usersController.login);
 router.post('/login', usersController.loginProcess);
 
 
-router.get('/profile', authMiddleware,usersController.profile);
+router.get('/profile/', authMiddleware,usersController.profile);
 router.get('/logout',usersController.logout);
 
 

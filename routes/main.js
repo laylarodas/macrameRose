@@ -16,5 +16,7 @@ router.get('/contact', mainController.contact);
 
 router.get('/cart', mainController.cart);
 
+router.get('/prueba', mainController.prueba);
+
 
 module.exports = router;

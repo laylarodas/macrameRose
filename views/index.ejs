@@ -50,7 +50,8 @@
                     %>
                     <article class="article-product">
                         <a href="/products/detail/<%= product.id %>">
-                            <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-width">
+                            <img src="/img/products/<%= product.image %> " alt="<%= product.name %>" class="img-width">
+                                
                             <div id="description-product">
                                 <i class="fas fa-truck"></i>
                                 <h4 class="name-product"><%= product.name %></h4>
@@ -65,28 +66,26 @@
 
             </div>
             <h3>OFERTAS</h3>
-
             <div id="box-products">
-
                 <% inSale.forEach(product => { 
                     let finalPrice = product.price - (product.price * product.discount / 100); 
                     %>
                     <article class="article-product">
                         <a href="/products/detail/<%= product.id %>">
-                            <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-width">
+                            <img src="/img/products/<%= product.image %> " alt="<%= product.name %>" class="img-width">
+                                
                             <div id="description-product">
                                 <i class="fas fa-truck"></i>
                                 <h4 class="name-product"><%= product.name %></h4>
                                 <p class="price hidden-product">$<%= toThousand(finalPrice.toFixed(0)) %> </p>
-                                <% if(product.discount > 0) { %>
-                                    <p class="discount hidden-product"><%= product.discount %>% off</p>
-                                <% } %>
+                                <p class="discount hidden-product"><%= product.discount %>% off</p>
+                                
                             </div>
                         </a>
                     </article>
                 <% }) %>
-
             </div>
+            
 
             <div class="div-allproducts">
                 <a href="/products"> VER TODOS LOS PRODUCTOS</a>

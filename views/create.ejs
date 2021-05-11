@@ -28,13 +28,9 @@
                 <div class="div-features">
                     <div id="div-categories-productCreate">
                         <label>Seleccione Categoría:</label>
-                        <input type="radio" name="category" value="portaMacetas" class="input-categories"> PORTA MACETAS<label></label>
-                        <input type="radio" name="category" value="almohadones" class="input-categories"> ALMOHADONES <label></label>
-                        <input type="radio" name="category" value="espejos" class="input-categories"> ESPEJOS<label></label>
-                        <input type="radio" name="category" value="cortinas" class="input-categories"> CORTINAS<label></label>
-                        <input type="radio" name="category" value="adornor" class="input-categories"> ADORNOS<label></label>
-                        <input type="radio" name="category" value="bolsosCarteras" class="input-categories"> BOLSOS Y CARTERAS<label></label>
-                        <input type="radio" name="category" value="Accesorios" class="input-categories"> ACCESORIOS<label></label>
+                        <% categories.forEach(category => { %>
+                            <input type="radio" name="categoryId" value="<%= category.id %>" class="input-categories"> <%= category.name.toUpperCase() %> <label></label>
+                        <% }) %>
                     </div>
                     <div id="div-add-category-productCreate">
                         <label>Agregar Catergoria:(Opcional)</label>
@@ -45,23 +41,18 @@
                     <div id="div-variants-productCreate">
                         <div id="color-variant">
                             <label>Color:</label>
-                            <select name="color">
-                                <option value="CRUDO">CRUDO</option>
-                                <option value="NEGRO">NEGRO</option>
-                                <option value="VERDE">VERDE</option>
-                                <option value="BEIGE">BEIGE</option>
-                                <option value="CHOCOLATE">CHOCOLATE</option>
-                                <option value="ROSA">ROSA</option>
-                                <option value="GRIS">GRIS</option>
-                                <option value="ROJO">ROJO</option>
+                            <select name="colorId">
+                                <% colors.forEach(color => { %>
+                                    <option value="<%= color.id %> "><%= color.name.toUpperCase() %> </option>
+                                <% }) %>
                             </select>
                         </div>
                         <div id="size-variant">
                             <label>Tamaño:</label>
-                            <select name="size">
-                                <option value="PEQUEÑO">PEQUEÑO</option>
-                                <option value="MEDIANO">MEDIANO</option>
-                                <option value="GRANDE">GRANDE</option>
+                            <select name="sizeId">
+                                <% sizes.forEach(size => { %>
+                                    <option value="<%= size.id %> "><%= size.name.toUpperCase() %> </option>
+                                <% }) %>
                             </select>
                         </div>
                     </div>
