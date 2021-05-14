@@ -154,7 +154,7 @@ h3{color: #87868a;margin: 10px;padding: 5px;font-weight: 400;font-size: 16px;tex
 
 /*   REGISTER */
 
-.text-danger{color: rgb(255,0,0);font-size: 14px;font-weight: 400;margin-top: 5px;}
+.text-danger{color: rgb(255,0,0);font-size: 14px;font-weight: 400;margin-top: 5px;background-color: #fdebd2;padding: 2px;border-radius: 6px;}
 
 #main-register{
     width: 80%;

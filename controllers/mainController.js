@@ -18,13 +18,13 @@ const mainController = {
         //res.render('index',{inSale, featured, toThousand});
 
 
-        let inSale = await db.Product.findAll({
+        let inSale = await db.products.findAll({
             where:{
                 discount: {[Op.gt] : 0}
             },
             limit: 4
         });
-        let featured = await db.Product.findAll({
+        let featured = await db.products.findAll({
             limit: 8
         });
 
@@ -44,7 +44,7 @@ const mainController = {
         });*/
         let search = req.query.keywords;
         
-        let productsToSearch = await db.Product.findAll({where: {name: {[Op.like]: `%${search}%`}}});
+        let productsToSearch = await db.products.findAll({where: {name: {[Op.like]: `%${search}%`}}});
         res.render('results',{
             products: productsToSearch,
             search,
@@ -65,19 +65,19 @@ const mainController = {
     },
     prueba: async function(req,res) {
 
-        let productsAll = await db.Product.findAll({
+        let productsAll = await db.products.findAll({
             include:['category','color','size'],
             order: [
                 ["name" , "ASC"]
             ],
             limit: 1
         })
-        let categoryOne = await db.Product.findAll({where: {categoryId: 1}});
-        let categoryTwo = await db.Product.findAll({where: {categoryId: 2}});
+        let categoryOne = await db.products.findAll({where: {categoryId: 1}});
+        let categoryTwo = await db.products.findAll({where: {categoryId: 2}});
 
         let search = req.query.keywords;
 
-        let productsToSearch = await db.Product.findAll({where: {name: {[Op.like]: `%${search}%`}}});
+        let productsToSearch = await db.products.findAll({where: {name: {[Op.like]: `%${search}%`}}});
 
         res.render('pruebaVista',{
             productsAll,

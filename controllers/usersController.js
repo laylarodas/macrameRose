@@ -26,7 +26,7 @@ const usersController = {
 
         //let userInDB = User.findField('email',req.body.email);
 
-        let userInDB = await db.User.findOne({
+        let userInDB = await db.users.findOne({
             where: {
                 email: req.body.email
             }
@@ -37,7 +37,7 @@ const usersController = {
             return res.render('register',{
                 errors:{
                     email: { 
-                        msg: 'Este email ya esta registrado'
+                        msg: 'Este email ya esta registrado.'
                     }
                 },
                 oldData: req.body
@@ -57,7 +57,7 @@ const usersController = {
             avatar = 'default-image.png';
         }
 
-        await db.User.create({
+        await db.users.create({
             name: req.body.name,
             userName: req.body.userName,
             email: req.body.email,
@@ -70,21 +70,21 @@ const usersController = {
         //res.send('Ok, Pasaste todas las validaciones puedes ingresar');
     },
     registerEdit: async function(req,res){
-        let userToEdit = await db.User.findByPk(req.params.id);
+        let userToEdit = await db.users.findByPk(req.params.id);
 
         res.render('userEdit',{userToEdit});
     },
     registerUpdate: async function(req,res){
        
-        let userToEdit = await db.User.findByPk(req.params.id)
-       
+        let userToEdit = await db.users.findByPk(req.params.id)
         const resultValidation = validationResult(req);
         if(resultValidation.errors.length > 0){
             return res.render('userEdit',{
                 errors: resultValidation.mapped(),
-                userToEdit
+                userToEdit,
             })
         }
+        
 
 
         let avatar;
@@ -95,7 +95,7 @@ const usersController = {
 		}
 
 
-        await db.User.update({
+        await db.users.update({
             name: req.body.name,
             userName: req.body.userName,
             email: req.body.email,
@@ -118,7 +118,7 @@ const usersController = {
     },
     loginProcess: function (req,res) {
         //let userToLogin = User.findField('email',req.body.email);
-        db.User.findOne({
+        db.users.findOne({
             where: {
                 email: req.body.email
             }
@@ -137,7 +137,7 @@ const usersController = {
                 return res.render('login', {
                     errors: {
                         email:{
-                            msg: 'Las credenciales son invalidas'
+                            msg: 'Las credenciales son invalidas.'
                         }
                     }
                 })
@@ -146,7 +146,7 @@ const usersController = {
             return res.render('login', {
                 errors: {
                     email: {
-                        msg: 'No se encuentra este email en nuestra base de datos'
+                        msg: 'No se encuentra este email en nuestra base de datos.'
                    }
                 }
             });

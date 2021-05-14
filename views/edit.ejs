@@ -13,16 +13,25 @@
                     <div id="div-name-productCreate">
                         <label>Nombre del producto:</label>
                         <input type="text" name="name" value="<%= productToEdit.name %>" id="name-newproduct" placeholder="Nombre del producto">
+                        <% if (locals.errors && errors.name) {%>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.name.msg %></div>
+                        <% } %>
                     </div>
                     <h4>Fotos *</h4>
                     <div id="div-photo-productCreate">
                         <label>Añadir una foto:</label>
                         <input type="file" name="image"  class="input-photo-product">
+                        <% if (locals.errors && errors.image) {%>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.image.msg %></div>
+                        <% } %>
                     </div>
                     <h4>Información del Producto</h4>
                     <div id="div-description-productCreate">
                         <label>Descripcion:</label>
                         <textarea name="description" class="textarea-description"><%= productToEdit.description %></textarea>
+                        <% if (locals.errors && errors.description) {%>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.description.msg %></div>
+                        <% } %>
                     </div>
                 </div>
                 <div class="div-features">
@@ -31,7 +40,9 @@
                         <% categories.forEach(category => { %>
                             <input type="radio" name="categoryId" value="<%= category.id %>"  class="input-categories" <%= productToEdit.categoryId == category.id ? 'checked' : ''%> ><%= category.name.toUpperCase() %><label></label>
                         <% }) %>
-                        
+                        <% if (locals.errors && errors.categoryId) { %>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.categoryId.msg %></div>
+                        <% } %>
                     </div>
                     <div id="div-add-category-productCreate">
                         <label>Agregar Catergoria:(Opcional)</label>
@@ -47,6 +58,9 @@
                                     <option value="<%= color.id %> " <%= productToEdit.colorId == color.id ? 'selected' : '' %>><%= color.name.toUpperCase() %> </option>
                                 <% }) %>
                             </select>
+                            <% if (locals.errors && errors.colorId) { %>
+                                <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.colorId.msg %></div>
+                            <% } %>
                         </div>
                         <div id="size-variant">
                             <label>Tamaño:</label>
@@ -55,6 +69,9 @@
                                     <option value="<%= size.id %> " <%= productToEdit.sizeId == size.id ? 'selected' : ''%> ><%= size.name.toUpperCase() %> </option>
                                 <% }) %>
                             </select>
+                            <% if (locals.errors && errors.sizeId) { %>
+                                <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.sizeId.msg %></div>
+                            <% } %>
                         </div>
                     </div>
                 </div>
@@ -64,14 +81,23 @@
                     <div id="price-productCreate">
                         <label>Precio:</label>
                         <input type="text" name="price" value="<%= productToEdit.price %>" >
+                        <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.price.msg %></div>
+                        <% } %>
                     </div>
                     <div id="price-productCreate">
                         <label>Descuento:</label>
                         <input type="text" name="discount" value="<%= productToEdit.discount %>" >
+                        <% if (locals.errors && errors.discount) { %>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.discount.msg %></div>
+                        <% } %>
                     </div>
                     <div id="stock-productCreate">
                         <label>Stock:</label>
                         <input type="number" name="stock" value="<%= productToEdit.stock %>">
+                        <% if (locals.errors && errors.stock) { %>
+                            <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.stock.msg %></div>
+                        <% } %>
                     </div>
                 </div>
                 </div>

@@ -1,9 +1,8 @@
 const path = require('path');
 const fs = require('fs');
+const { validationResult } = require('express-validator');
 
 const db = require('../database/models');
-const { response } = require('express');
-const { body } = require('express-validator');
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 
@@ -16,7 +15,7 @@ const productsController = {
     index: async function(req,res){
         //res.sendFile(path.resolve('views/products/productCart.html'));
         
-        let products = await db.Product.findAll({
+        let products = await db.products.findAll({
             order: [
                 ["name","ASC"]
             ]
@@ -28,7 +27,7 @@ const productsController = {
         //let product = products.find(product=>product.id==req.params.id)
 		//res.render('detail',{product,toThousand});
 
-        let product = await db.Product.findOne({
+        let product = await db.products.findOne({
             where: {
                 id: req.params.id
             },
@@ -41,14 +40,29 @@ const productsController = {
     create: async function(req,res){
         //res.sendFile(path.resolve('views/products/productCart.html'));
 
-        let categories = await db.Category.findAll();
-        let colors = await db.Color.findAll();
-        let sizes = await db.Size.findAll();
+        let categories = await db.categories.findAll();
+        let colors = await db.colors.findAll();
+        let sizes = await db.sizes.findAll();
 
         res.render('create',{sizes,colors,categories});
     },
     store: async function(req,res){
+        let categories = await db.categories.findAll();
+        let colors = await db.colors.findAll();
+        let sizes = await db.sizes.findAll();
 
+        const resultValidation = validationResult(req);
+        if(resultValidation.errors.length > 0){
+            return res.render('create',{
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                categories,
+                colors,
+                sizes
+                
+            })
+            
+        }
         
 
         /*let ids = products.map(p => p.id);//Array de los ids del archivo json
@@ -69,7 +83,8 @@ const productsController = {
             image = 'default-image.png';
         }
 
-        await db.Product.create({
+
+        await db.products.create({
             name: req.body.name,
             image: image,
             description: req.body.description,
@@ -94,11 +109,12 @@ const productsController = {
         //let productToEdit = products.find(product=>product.id==req.params.id);
 		//res.render('edit',{productToEdit,toThousand});
 
-        let productToEdit = await db.Product.findByPk(req.params.id)
+        let productToEdit = await db.products.findByPk(req.params.id)
         
-        let categories = await db.Category.findAll();
-        let colors = await db.Color.findAll();
-        let sizes = await db.Size.findAll();
+        let categories = await db.categories.findAll();
+        let colors = await db.colors.findAll();
+        let sizes = await db.sizes.findAll();
+
 
         res.render('edit',{productToEdit,categories,colors,sizes,toThousand})
     },
@@ -130,7 +146,27 @@ const productsController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
         res.redirect('/products'); */
 
-        let productToEdit = await db.Product.findByPk(req.params.id);
+        let productToEdit = await db.products.findByPk(req.params.id);
+
+        let categories = await db.categories.findAll();
+        let colors = await db.colors.findAll();
+        let sizes = await db.sizes.findAll();
+
+        const resultValidation = validationResult(req);
+        if(resultValidation.errors.length > 0){
+            return res.render('edit',{
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                categories,
+                colors,
+                sizes,
+                productToEdit
+                
+            })
+            
+        }
+
+
 
         let image;
 		if(req.file != undefined){
@@ -140,7 +176,7 @@ const productsController = {
 		}
 
 
-        await db.Product.update({
+        await db.products.update({
             ...req.body,
             image: image
         },{
@@ -160,7 +196,7 @@ const productsController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
         res.redirect('/products');*/
 
-        await db.Product.destroy({
+        await db.products.destroy({
             where:{
                 id:req.params.id,
             }

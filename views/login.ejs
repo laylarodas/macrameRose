@@ -12,7 +12,7 @@
                 <label id="usuario">EMAIL</label>
                 <input type="text" id="email" name="email" class="input-control" placeholder="Ej: abcd@efgh.com">
                 <% if(locals.errors && errors.email) {%>
-                    <div class="text-danger"><%= errors.email.msg %></div>
+                    <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.email.msg %></div>
                 <% } %>  
             </div>
             <div class="div-form">
