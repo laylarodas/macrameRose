@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2021 a las 19:54:12
+-- Tiempo de generación: 14-05-2021 a las 22:25:20
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `store`
+-- Base de datos: `macrame_db`
 --
-CREATE DATABASE IF NOT EXISTS `store` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `store`;
+CREATE DATABASE IF NOT EXISTS `macrame_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `macrame_db`;
 
 -- --------------------------------------------------------
 
@@ -31,8 +31,10 @@ USE `store`;
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -48,8 +50,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 DROP TABLE IF EXISTS `colors`;
 CREATE TABLE IF NOT EXISTS `colors` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,30 +69,49 @@ CREATE TABLE IF NOT EXISTS `colors` (
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `description` longtext NOT NULL,
-  `categoryId` int(11) NOT NULL,
-  `colorId` int(11) NOT NULL,
-  `sizeId` int(11) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
-  `discount` decimal(10,0) NOT NULL,
-  `stock` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `discount` decimal(10,0) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `categoryId` int(11) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `colorId` int(11) DEFAULT NULL,
+  `sizeId` int(11) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_products_colors_idx` (`colorId`),
-  KEY `fk_products_sizes_idx` (`sizeId`),
-  KEY `fk_products_categories_idx` (`categoryId`)
+  KEY `categoryId` (`categoryId`),
+  KEY `colorId` (`colorId`,`sizeId`),
+  KEY `sizeId` (`sizeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELACIONES PARA LA TABLA `products`:
 --   `categoryId`
 --       `categories` -> `id`
---   `colorId`
---       `colors` -> `id`
 --   `sizeId`
 --       `sizes` -> `id`
+--   `colorId`
+--       `colors` -> `id`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sequelizemeta`
+--
+
+DROP TABLE IF EXISTS `sequelizemeta`;
+CREATE TABLE IF NOT EXISTS `sequelizemeta` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- RELACIONES PARA LA TABLA `sequelizemeta`:
 --
 
 -- --------------------------------------------------------
@@ -99,8 +122,10 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 DROP TABLE IF EXISTS `sizes`;
 CREATE TABLE IF NOT EXISTS `sizes` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -116,14 +141,15 @@ CREATE TABLE IF NOT EXISTS `sizes` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `userName` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `avatar` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -138,9 +164,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `fk_products_categories` FOREIGN KEY (`categoryId`) REFERENCES `online_store`.`categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_products_colors` FOREIGN KEY (`colorId`) REFERENCES `online_store`.`colors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_products_sizes` FOREIGN KEY (`sizeId`) REFERENCES `online_store`.`sizes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`sizeId`) REFERENCES `sizes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_ibfk_3` FOREIGN KEY (`colorId`) REFERENCES `colors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
