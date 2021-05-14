@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
+
 app.use(session({
     secret: "Shh, It' a secret ",
     resave: false,
@@ -26,12 +27,14 @@ app.use(userLoggedMiddleware);
 const mainRoutes = require('./routes/main');
 const productRoutes = require('./routes/products');
 const usersRoutes = require('./routes/users');
+const categoriesRoutes = require('./routes/categories');
 
 
 //rutas estaticas
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);
 app.use('/user', usersRoutes);
+app.use('/categories', categoriesRoutes);
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('Servidor corriendo en el puerto 3000');

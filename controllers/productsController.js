@@ -22,6 +22,14 @@ const productsController = {
         })
         res.render('products',{products, toThousand});
     },
+    category: async function(req,res){
+
+        let products = await db.products.findAll({where: {categoryId : req.params.id}});
+        let category = await db.categories.findByPk(req.params.id);
+        
+        res.render('categories', {products,category,toThousand})
+        //res.send('Estas en la categoria' + req.params.id);
+    },
     detail: async function(req,res){
         //res.send('detail');
         //let product = products.find(product=>product.id==req.params.id)
@@ -34,8 +42,14 @@ const productsController = {
             include: ['color','category','size']
         })
 
+        let relatedProducts = await db.products.findAll({
+            where:{
+                categoryId : product.categoryId
+            },
+            limit: 3
+        })
 
-        res.render('detail',{product,toThousand})
+        res.render('detail',{product,relatedProducts,toThousand});
     },
     create: async function(req,res){
         //res.sendFile(path.resolve('views/products/productCart.html'));

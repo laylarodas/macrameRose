@@ -67,41 +67,30 @@
             <div>
                 <form action="#" method="GET" class="form-comment-detail">
                     <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="AGREGAR UN COMENTARIO" class="area-comment-deatil"></textarea>
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
         </section>
         <section class="related-products">
             <h3>PRODUCTOS RELACIONADOS</h3>
             <div class="box-products-detail">
-                <article class="article-products-detail">
-                    <div>
-                        <img src="/img/products/adorno2.jpg" alt="adorno2" class="img-detail">
-                    </div>
-                    <div id="description-related-product">
-                        <i class="fas fa-truck"></i>
-                        <h4 class=" name-product-detail">COLGANTE DE PLUMAS BOHO-CHIC</h4>
-                        <p class="price-related hidden-product">$1.840</p>
-                        <p class="discount-related hidden-product">10% off</p>
-                    </div>
-                </article>
-                <article class="article-products-detail">
-                    <img src="/img/products/adorno3.jpg" alt="adorno3" class="img-detail">
-                    <div id="description-related-product">
-                        <i class="fas fa-truck"></i>
-                        <h4 class=" name-product-detail">MACRAMÉ PARED DECORACION BOHO COLGANDO PLUMAS</h4>
-                        <p class="price-related hidden-product">$2.570</p>
-                        <p class="discount-related hidden-product">10% off</p>
-                    </div>
-                </article>
-                <article class="article-products-detail">
-                    <img src="/img/products/adorno4.jpg" alt="adorno4" class="img-detail">
-                    <div id="description-related-product">
-                        <i class="fas fa-truck"></i>
-                        <h4 class=" name-product-detail">MACRAMÉ GRANDE- COLGANTE DE PARED PLUMAS</h4>
-                        <p class="hidden-product price-related">$3.840</p>
-                        <p class="hidden-product discount-related">15% off</p>
-                    </div>
-                </article>
+                <% relatedProducts.forEach(product => { 
+                    let finalPrice = product.price - (product.price * product.discount / 100); 
+                    %>
+                    <article class="article-productsList">
+                        <a href="/products/detail/<%= product.id %>">
+                            <img src="/img/products/<%= product.image %> " alt="<%= product.name %>" class="img-width">
+                            <div id="description-product">
+                                <i class="fas fa-truck"></i>
+                                <h4 class="name-product"><%= product.name %></h4>
+                                <p class="price hidden-product">$<%= toThousand(finalPrice.toFixed(0)) %></p>
+                                <% if(product.discount > 0) { %>
+                                    <p class="discount hidden-product"><%= product.discount %>% off</p>
+                                <% } %>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>                
             </div>
         </section>
         <hr>

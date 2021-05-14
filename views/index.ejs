@@ -10,34 +10,13 @@
         <section id="categories">
             <h3>PRINCIPALES CATEGORÍAS</h3>
             <div id="box-categories">
-                <article class="product-category">
-                    <img src="/img/products/portamaceta3.jpg" alt="portamaceta3" class="img-width">
-                    <a href="#"><h4>PORTA MACETAS</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/almohadon5.jpg" alt="almohadon5" class="img-width">
-                    <a href=""><h4>ALMOHADONES</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/espejo5.jpg" alt="espejo5" class="img-width">
-                    <a href=""><h4>ESPEJOS</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/cortina3.jpg" alt="cortina3" class="img-width">
-                    <a href=""><h4>CORTINAS</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/adorno4.jpg" alt="adorno4" class="img-width">
-                    <a href=""><h4>ADORNOS</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/bolso2.jpg" alt="bolso2" class="img-width">
-                    <a href=""><h4>BOLSOS Y CARTERAS</h4></a>
-                </article>
-                <article class="product-category">
-                    <img src="/img/products/accesorio1.jpg" alt="accesorio1" class="img-width">
-                    <a href=""><h4>ACCESORIOS</h4></a>
-                </article>
+                <% categories.forEach(category => { %>
+                    <article class="product-category">
+                        <img src="/img/products/<%= category.image %>" alt="<%= category.name %>" class="img-width">
+                        <a href="/categories/<%= category.id %> "><h4><%= category.name.toUpperCase() %></h4></a>
+                    </article>
+                <% }) %>
+                
             </div>
         </section>
         <section id="featured-products">

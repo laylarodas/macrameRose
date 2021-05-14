@@ -28,7 +28,9 @@ const mainController = {
             limit: 8
         });
 
-        res.render('index',{inSale,featured,toThousand});
+        let categories = await db.categories.findAll();
+
+        res.render('index',{inSale,featured,categories,toThousand});
     },
     contact:  (req,res) =>{
         res.send('Contact');
