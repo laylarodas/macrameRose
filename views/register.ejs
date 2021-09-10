@@ -7,12 +7,11 @@
         <div class="title-register">
             <h2>CREAR CUENTA</h2>
         </div>
-        <ul class="errores"></ul>
         <form action="/user/register" method="POST" class="create-form" enctype="multipart/form-data">
             <div class="div-network">
-                <div class="div-facebookregister"><a href="http://www.facebook.com/">REGISTRARSE CON FACEBOOK</a>
+                <div class="div-facebookregister"><a href="http://www.facebook.com/"><i class="fab fa-facebook-f"></i>REGISTRARSE CON FACEBOOK</a>
                 </div>
-                <div class="div-googleregister"><a href="http://www.google.com/">REGISTRARSE CON GOOGLE</a>
+                <div class="div-googleregister"><a href="http://www.google.com/"><i class="fab fa-google"></i>REGISTRARSE CON GOOGLE</a>
                 </div>
                 <div class="break">
                     <p>o</p>
@@ -21,43 +20,52 @@
             <div class="div-formregister">
                 <div class="control-form">
                     <label for="usuario">NOMBRE COMPLETO</label>
-                    <input id="name" type="text" name="name" class="control" placeholder="Nombre completo" value="<%= locals.oldData ? oldData.name : null %>">
+                    <input id="name" type="text" name="name" class="control name" placeholder="Nombre completo" value="<%= locals.oldData ? oldData.name : null %>">
                     <% if (locals.errors && errors.name) {%>
                         <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.name.msg %></div>
                     <% } %>
+                    <div class="nameErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
+                    
                 </div>
                 <div class="control-form">
                     <label for="">NOMBRE DE USUARIO</label>
-                    <input id="UserName" type="text" name="userName" class="control" placeholder="Nombre de usuario" value="<%= locals.oldData ? oldData.userName : null %>">
+                    <input id="UserName" type="text" name="userName" class="control userName" placeholder="Nombre de usuario" value="<%= locals.oldData ? oldData.userName : null %>">
                     <% if (locals.errors && errors.userName) {%>
                         <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.userName.msg %></div>
                     <% } %>
+                    <div class="userNameErrorDiv errorDiv" style="color: rgb(255,0,0);"style="display:none;" ></div>
                 </div>
                 <div class="control-form">
                     <label for="email">EMAIL</label>
-                    <input id="email" type="text" name="email" class="control" placeholder="Ej: abcd@efgh.com" value="<%= locals.oldData ? oldData.email : null %>">
+                    <input id="email" type="text" name="email" class="control email" placeholder="Ej: abcd@efgh.com" value="<%= locals.oldData ? oldData.email : null %>">
                     <% if (locals.errors && errors.email) {%>
                         <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.email.msg %></div>
                     <% } %>
+                    <div class="emailErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                 </div>
                 <div class="control-form">
                     <label>Añadir Avatar:</label>
-                    <input type="file" name="avatar" id="avatar" class="control">
+                    <input type="file" name="avatar" id="avatar" class="control avatar">
                     <% if (locals.errors && errors.avatar) {%>
                         <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.avatar.msg %></div>
                     <% } %>
+                    <div class="avatarErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
+                    <div class="avatarErrorDiv2 errorDiv" style="color: rgb(255,0,0);" style="display:none;" ></div> 
                 </div>
                 <div class="control-form">
                     <label>CONTRASEÑA</label>
-                    <input type="password" name="password" id="password" class="control" placeholder="Ingrese contraseña">
+                    <input type="password" name="password" id="password" class="control password" placeholder="Ingrese contraseña">
                     <% if (locals.errors && errors.password) {%>
                     <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.password.msg %></div>
                     <% } %>
+                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
+                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
                 </div>
                 <!-- <div class="control-form">
                     <label>CONFIRMAR CONTRASEÑA</label>
                     <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
                 </div> HACER VALIDACION-->
+                <div class="formErrorDiv errorDiv" style="color:red;" style="display:none;"></div>
                 <div class="div-button-register">
                     <button type="submit" class="button-form">CREAR CUENTA</button>
                     <button type="reset" class="button-form">BORRAR</button>
@@ -66,11 +74,13 @@
                     <p>¿Ya tienes una cuenta? <a href="/user/login">Iniciar sesión</a></p>
                 </div>
             </div>
+
+            
             
         </form>
     </main>
     <%- include('partials/footerUsers') %>
 </body>
-<!--  Scripts-->
+<!--  Scripts -->
 <script src="/js/registerValidation.js"></script>
 </html>

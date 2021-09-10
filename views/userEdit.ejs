@@ -5,7 +5,7 @@
     <%- include('partials/headerUsers') %>
     <main id="main-register">
         <div class="title-register">
-            <h2>CREAR CUENTA</h2>
+            <h2>EDITAR CUENTA</h2>
         </div>
         <form action="/user/update/<%= userToEdit.id %>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data">
             <div class="div-network">
@@ -20,46 +20,54 @@
             <div class="div-formregister">
                 <div class="control-form">
                     <label for="usuario">NOMBRE COMPLETO</label>
-                    <input id="usuario" type="text" name="name" class="control" placeholder="Nombre completo" value="<%= userToEdit.name %>">
+                    <input id="usuario" type="text" name="name" class="control name" placeholder="Nombre completo" value="<%= userToEdit.name %>">
                     <% if (locals.errors && errors.name) {%>
                         <div class="text-danger"><%= errors.name.msg %></div>
                     <% } %>
+                    <div class="nameErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                 </div>
                 <div class="control-form">
                     <label for="">NOMBRE DE USUARIO</label>
-                    <input type="text" name="userName" class="control" placeholder="Nombre de usuario" value="<%= userToEdit.userName %>">
+                    <input type="text" name="userName" class="control userName" placeholder="Nombre de usuario" value="<%= userToEdit.userName %>">
                     <% if (locals.errors && errors.userName) {%>
                         <div class="text-danger"><%= errors.userName.msg %></div>
                     <% } %>
+                    <div class="userNameErrorDiv errorDiv" style="color: rgb(255,0,0);"style="display:none;" ></div>
                 </div>
                 <div class="control-form">
                     <label for="email">EMAIL</label>
-                    <input id="email" type="text" name="email" class="control" placeholder="Ej: abcd@efgh.com" value="<%= userToEdit.email %>">
+                    <input id="email" type="text" name="email" class="control email" placeholder="Ej: abcd@efgh.com" value="<%= userToEdit.email %>">
                     <% if (locals.errors && errors.email) {%>
                         <div class="text-danger"><%= errors.email.msg %></div>
                     <% } %>
+                    <div class="emailErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                 </div>
                 <div class="control-form">
                     <label>Añadir Avatar:</label>
-                    <input type="file" name="avatar" class="control">
+                    <input type="file" name="avatar" class="control avatar">
                     <% if (locals.errors && errors.avatar) {%>
                         <div class="text-danger"><%= errors.avatar.msg %></div>
                     <% } %>
+                    <div class="avatarErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
+                    <div class="avatarErrorDiv2 errorDiv" style="color: rgb(255,0,0);" style="display:none;" ></div> 
                 </div>
                 <div class="control-form">
                     <label>CONTRASEÑA</label>
-                    <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
+                    <input type="password" name="password" class="control password" placeholder="Ingrese contraseña">
                     <% if (locals.errors && errors.password) {%>
                     <div class="text-danger"><%= errors.password.msg %></div>
                     <% } %>
+                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
+                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                 </div>
                 <!-- <div class="control-form">
                     <label>CONFIRMAR CONTRASEÑA</label>
                     <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
                 </div> HACER VALIDACION-->
+                <div class="formErrorDiv errorDiv" style="color:red;" style="display:none;"></div>
                 <div class="div-button-register">
                     <button type="submit" class="button-form">EDITAR CUENTA</button>
-                    <button type="reset" class="button-form">CANCELAR</button>
+                    <a href="/user/profile" class="button-form">CANCELAR</a>
                 </div>
             </div>
             
@@ -67,4 +75,6 @@
     </main>
     <%- include('partials/footerUsers') %>
 </body>
+<!-- Scripts-->
+<script src="/js/userEditValidation.js"></script>
 </html>

@@ -20,7 +20,7 @@ router.get('/login', guestMiddleware,usersController.login);
 router.post('/login', usersController.loginProcess);
 
 
-router.get('/profile/', authMiddleware,usersController.profile);
+router.get('/profile', authMiddleware,usersController.profile);
 router.get('/logout',usersController.logout);
 
 

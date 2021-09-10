@@ -63,7 +63,7 @@ const validations = [
     }),
     body('discount').custom(value =>{
         if(value == ''){
-            throw new Error('Debes ingresar el descuento del producto, sino tiene descuento ingresar 0.')
+            throw new Error('Debes ingresar el descuento del producto, si no tiene descuento ingresar 0.')
         }
         return true
     }),

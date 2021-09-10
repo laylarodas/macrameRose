@@ -37,4 +37,6 @@ Reducir tiempos entre actividad y actividad, para llevar un ritmo constante.
 5. **Dejar de hacer:**  
 No estancarse ante alguna complicacion para llevar a cabo una tarea. Investigar y consultar.
 
+### Retrospectiva del Sprint 7 
+
 

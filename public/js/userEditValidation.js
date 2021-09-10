@@ -1,5 +1,5 @@
 window.onload = function () {
-    let register = document.querySelector(".create-form");
+    let formUserEdit = document.querySelector(".create-form");
     let name = document.querySelector(".name");
     let userName = document.querySelector(".userName");
     let email = document.querySelector(".email");
@@ -91,7 +91,7 @@ window.onload = function () {
         errorDiv.innerHTML = "Debe tener al menos 1 mayúscula,1 minuscula,1 caracter especial y 1 número."
     }});
 
-    register.addEventListener("submit", e=> {
+    formUserEdit.addEventListener("submit", e=> {
         e.preventDefault();
                 if (
                 name.value.length > 0 &&
@@ -102,7 +102,7 @@ window.onload = function () {
                 ){
                 var errorDiv = document.querySelector(".formErrorDiv")
                 errorDiv.style.display = "none";
-                register.submit();
+                formUserEdit.submit();
             }else{            
                 var errorDiv = document.querySelector(".formErrorDiv")
                 errorDiv.style.display = "block";

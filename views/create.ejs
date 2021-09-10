@@ -12,30 +12,34 @@
                 <div class="div-informationproduct">
                     <div id="div-name-productCreate">
                         <label>Nombre del producto:</label>
-                        <input type="text" name="name" id="name-newproduct" placeholder="Nombre del producto">
+                        <input type="text" name="name" id="name-newproduct" class="name" placeholder="Nombre del producto">
                         <% if (locals.errors && errors.name) {%>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.name.msg %></div>
                         <% } %>
+                        <div class="nameErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                     <h4>Fotos *</h4>
                     <div id="div-photo-productCreate">
                         <label>Añadir una foto:</label>
-                        <input type="file" name="image" class="input-photo-product">
+                        <input type="file" name="image" class="input-photo-product image">
                         <% if (locals.errors && errors.image) {%>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.image.msg %></div>
                         <% } %>
+                        <div class="imageErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
+                        <div class="imageErrorDiv2 errorDiv" style="color: rgb(255,0,0);" style="display:none;" ></div>
                     </div>
                     <h4>Información del Producto</h4>
                     <div id="div-description-productCreate">
                         <label>Descripcion:</label>
-                        <textarea name="description" class="textarea-description"></textarea>
+                        <textarea name="description" class="textarea-description description"></textarea>
                         <% if (locals.errors && errors.description) {%>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.description.msg %></div>
                         <% } %>
+                        <div class="descriptionErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                 </div>
                 <div class="div-features">
-                    <div id="div-categories-productCreate">
+                    <div id="div-categories-productCreate"  class="category">
                         <label>Seleccione Categoría:</label>
                         <% categories.forEach(category => { %>
                             <input type="radio" name="categoryId" value="<%= category.id %>" class="input-categories"> <%= category.name.toUpperCase() %> <label></label>
@@ -43,6 +47,7 @@
                         <% if (locals.errors && errors.categoryId) { %>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.categoryId.msg %></div>
                         <% } %>
+                        <div class="categoryErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                     <div id="div-add-category-productCreate">
                         <label>Agregar Catergoria:(Opcional)</label>
@@ -53,7 +58,7 @@
                     <div id="div-variants-productCreate">
                         <div id="color-variant">
                             <label>Color:</label>
-                            <select name="colorId">
+                            <select name="colorId" class="color">
                                 <option value="" >ELEGIR</option>
                                 <% colors.forEach(color => { %>
                                     <option value="<%= color.id %> "><%= color.name.toUpperCase() %> </option>
@@ -62,10 +67,11 @@
                             <% if (locals.errors && errors.colorId) { %>
                                 <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.colorId.msg %></div>
                             <% } %>
+                            
                         </div>
                         <div id="size-variant">
                             <label>Tamaño:</label>
-                            <select name="sizeId">
+                            <select name="sizeId" class="size">
                                 <option value="" >ELEGIR</option>
                                 <% sizes.forEach(size => { %>
                                     <option value="<%= size.id %> "><%= size.name.toUpperCase() %> </option>
@@ -74,6 +80,7 @@
                             <% if (locals.errors && errors.sizeId) { %>
                                 <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.sizeId.msg %></div>
                             <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -82,28 +89,33 @@
                 <div id="div-price-productCreate">
                     <div id="price-productCreate">
                         <label>Precio:</label>
-                        <input type="text" name="price">
+                        <input type="text" name="price" class="price">
                         <% if (locals.errors && errors.price) { %>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.price.msg %></div>
                         <% } %>
+                        <div class="priceErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                     <div id="price-productCreate">
                         <label>Descuento:</label>
-                        <input type="text" name="discount">
+                        <input type="text" name="discount" class="discount">
                         <% if (locals.errors && errors.discount) { %>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.discount.msg %></div>
                         <% } %>
+                        <div class="discountErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                     <div id="stock-productCreate">
                         <label>Stock:</label>
-                        <input type="number" name="stock">
+                        <input type="number" name="stock" class="stock">
                         <% if (locals.errors && errors.stock) { %>
                             <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.stock.msg %></div>
                         <% } %>
+                        <div class="stockErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                     </div>
                 </div>
                 </div>
+                
                 <div class="div-buttons">
+                    <div class="formErrorDiv errorDiv" style="color:red;" style="display:none;"></div>
                     <div id="buttons-productsCreate">
                         <button type="reset" class="design-button-productCreate">BORRAR</button>
                         <button type="submit" class="design-button-productCreate">CONFIRMAR</button>
@@ -115,4 +127,6 @@
     </main>
     <%- include('partials/footerUsers') %>
 </body>
+<!-- Scripts -->
+<script src="/js/productCreateValidation.js"></script>
 </html>

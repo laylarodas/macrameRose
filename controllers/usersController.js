@@ -18,7 +18,6 @@ const usersController = {
             return res.render('register',{
                 errors: resultValidation.mapped(),
                 oldData: req.body,
-                
             })
             
         }

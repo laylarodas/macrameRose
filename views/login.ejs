@@ -10,15 +10,20 @@
         <form action="/user/login" method="POST" class="design-form">
             <div class="div-form">
                 <label id="usuario">EMAIL</label>
-                <input type="text" id="email" name="email" class="input-control" placeholder="Ej: abcd@efgh.com">
+                <input type="text" id="email" name="email" class="input-control email" placeholder="Ej: abcd@efgh.com">
                 <% if(locals.errors && errors.email) {%>
                     <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.email.msg %></div>
                 <% } %>  
+                <div class="emailErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
             </div>
             <div class="div-form">
                 <label id="password">CONTRASEÑA</label>
-                <input type="password" id="password" name="password" class="input-control" placeholder="Ingrese la contraseña">
+                <input type="password" id="password" name="password" class="input-control password" placeholder="Ingrese la contraseña">
+                
+                <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
+                <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
             </div>
+            <div class="formErrorDiv errorDiv" style="color:red;" style="display:none;"></div>
             <div class="rememberUser">
                 <label>Recordar contraseña</label>
                 <input type="checkbox" name="rememberUser">
@@ -38,4 +43,6 @@
     </main>
     <%- include('partials/footerUsers') %>
 </body>
+<!--  Scripts -->
+<script src="/js/loginValidation.js"></script>
 </html>
