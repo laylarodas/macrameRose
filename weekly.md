@@ -37,10 +37,10 @@
 - Sprint5: 
    - Uso de la libreria Bootstrap. (no se pudo usar las clases de bootstrap para validacion de errores en formulario de login y registro). 
 - Sprint 6:
-   - No me quedo claro como armar la tabla de carrito de compras y productos de carritos de compras.  
--Sprint 7:  
-   - Validacion front de correo electronico si ya se encuentra en la base de datos o no.
-   - Validacion front de elementos select y checkbox.
+   - No me quedo claro como armar la tabla de carrito de compras y productos de carritos de compras.    
+- Sprint 7:  
+   - Validacion front de correo electronico si existe en la base de datos.
+   - Validacion front de elementos input-checkbox y select.
 
 ### Tareas a realizar:  
 - Sprint 5: 
@@ -51,5 +51,5 @@
    - Investigar como armar las tablas de carrito de compras y productos del carrito.  
 - Sprint 7:
    - Repasar las clases de la cursada, para completar las tareas pendientes en Trello.
-   - Investigar sobre validaciones front en elementos select y checkbox.
+   - Investigar sobre validaciones front en elementos input-checkbox y select.
    - Investugar sobre validar front correo electronico si ya se encuentra registrado o no en la base de datos.
