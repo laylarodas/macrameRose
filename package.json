@@ -1,26 +1,36 @@
 {
   "name": "rose",
   "version": "1.0.0",
-  "description": "",
+  "description": "Venta de artículos de macramé. De acuerdo a las siguientes categorías:   \r 1.- Porta macetas.  \r 2.- Almohadones.  \r 3.- Bolsos.  \r 4.- Cortinas.  \r 5.- Accesorios.  \r 6.- Adornos.  \r 7.- Espejos.",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app"
   },
   "keywords": [],
-  "author": "",
+  "author": "layla rodas",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "express-validator": "^6.10.0",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
     "jquery": "^3.6.0",
     "method-override": "^3.0.0",
-    "multer": "^1.4.2",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12",
+    "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laylarodas/macrameRose.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laylarodas/macrameRose/issues"
+  },
+  "homepage": "https://github.com/laylarodas/macrameRose#readme"
 }

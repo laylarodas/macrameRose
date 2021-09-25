@@ -30,7 +30,9 @@
        - Validaciones del registro de usuario, login y modificación y creación de productos. 
    - Validacion del front:
        - Validaciones del registro de usuario, login y editar perfil.
-       - Algunas validaciones front de los formularios creación y edición de productos.
+       - Algunas validaciones front de los formularios creación y edición de productos.  
+- Sprint 8:  
+
        
         
 ### Impedimentos encontrados:  
@@ -40,7 +42,8 @@
    - No me quedo claro como armar la tabla de carrito de compras y productos de carritos de compras.    
 - Sprint 7:  
    - Validacion front de correo electronico si existe en la base de datos.
-   - Validacion front de elementos input-checkbox y select.
+   - Validacion front de elementos input-checkbox y select.  
+- Sprint 8:  
 
 ### Tareas a realizar:  
 - Sprint 5: 
@@ -52,4 +55,5 @@
 - Sprint 7:
    - Repasar las clases de la cursada, para completar las tareas pendientes en Trello.
    - Investigar sobre validaciones front en elementos input-checkbox y select.
-   - Investugar sobre validar front correo electronico si ya se encuentra registrado o no en la base de datos.
+   - Investugar sobre validar front correo electronico si ya se encuentra registrado o no en la base de datos.  
+Sprint 8:  
