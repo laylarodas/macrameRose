@@ -4,33 +4,33 @@ const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 
 
-const productsAPIController = {
+const categoriesAPIController = {
     'list': (req, res) => {
-        db.products.findAll()
-        .then(products => {
+        db.categories.findAll()
+        .then(categories => {
             return res.status(200).json({
                 meta:{
                     status:200,
-                    count:products.length,
-                    url: '/api/products'
+                    count:categories.length,
+                    url: '/api/categories'
                 },
-                data: products
+                data: categories
             })
         })
     },
     'detail': (req, res) => {
-        db.products.findByPk(req.params.id)
-        .then(product => {
+        db.categories.findByPk(req.params.id)
+        .then(category => {
             return res.status(200).json({
                 meta:{
                     status:200,
-                    url: '/api/products/:id'
+                    url: '/api/categories/:id'
                 },
-                data: product
+                data: category
             })
         })
     }
 }
 
 
-module.exports = productsAPIController;
+module.exports = categoriesAPIController;

@@ -32,6 +32,7 @@ const categoriesRoutes = require('./routes/categories');
 
 const apiProductsRouter = require('./routes/api/products');
 const apiUsersRouter = require('./routes/api/users');
+const apiCategoriesRouter = require('./routes/api/categories');
 
 //rutas estaticas
 app.use('/', mainRoutes);
@@ -41,9 +42,10 @@ app.use('/categories', categoriesRoutes);
 
 app.use('/api/products',apiProductsRouter);
 app.use('/api/users',apiUsersRouter);
+app.use('/api/categories',apiCategoriesRouter);
 
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log('Servidor corriendo en el puerto 3000');
+app.listen(process.env.PORT || 3001, ()=>{
+    console.log('Servidor corriendo en el puerto 3001');
 });
 
 
