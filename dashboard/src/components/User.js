@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import ProductList from './ProductList';
+import UserList from './UserList';
 
-class Product extends Component {
+class User extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
-			productsList:[]
+			usersList:[]
 		}
 	}
 
-	getProducts(){
-        fetch('/api/products').then(r=>r.json()).then(respuesta=>{
-            this.setState({productsList:respuesta.data})
+	getUsers(){
+        fetch('/api/users').then(r=>r.json()).then(respuesta=>{
+            this.setState({usersList:respuesta.data})
         })
     }
 
     componentDidMount(){
-        this.getProducts();
+        this.getUsers();
     }
 
 	render() { 
@@ -25,7 +25,7 @@ class Product extends Component {
 			<React.Fragment>
 				<div className="container-fluid">
 						 {/*<!-- PRODUCTS LIST -->*/}
-					<h1 className="h3 mb-2 text-gray-800">All the products in the Database</h1>
+					<h1 className="h3 mb-2 text-gray-800">All the users in the Database</h1>
 					
 					{/*<!-- DataTales Example -->*/}
 					<div className="card shadow mb-4">
@@ -36,24 +36,22 @@ class Product extends Component {
 										<tr>
                                             <th>Id</th>
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Discount</th>
-                                            <th>Decription</th>
+                                            <th>UserName</th>
+                                            <th>Email</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
                                             <th>Id</th>
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Discount</th>
-                                            <th>Decription</th>
+                                            <th>UserName</th>
+                                            <th>Email</th>
 										</tr>
 									</tfoot>
 									<tbody>
 										{
-											this.state.productsList.map((product,i) => {
-												return <ProductList key={i} {...product} />
+											this.state.usersList.map((user,i) => {
+												return <UserList key={i} {...user} />
 											})
 										}
 									</tbody>
@@ -68,4 +66,4 @@ class Product extends Component {
 	}
 }
  
-export default Product;
+export default User;

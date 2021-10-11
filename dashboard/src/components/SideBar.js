@@ -1,6 +1,6 @@
 import React from 'react';
 import image from '../assets/images/logo.jpg';
-
+import { Link } from "react-router-dom";
 
 function SideBar(){
     return(
@@ -20,9 +20,10 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Macramé Rose </span></a>
+                        <span>Dashboard - Macramé Rose </span>
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -31,26 +32,36 @@ function SideBar(){
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Actions</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
+                {/*<!-- Nav Item - Products -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="/">
+                    <Link className="nav-link collapsed" to="/products">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Products</span>
-                    </a>
+                    </Link>
                 </li>
 
-                {/*<!-- Nav Item - Charts -->*/}
+                {/*<!-- Nav Item - Last Product -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Last Product</span></a>
+                        <span>Last Product</span>
+                    </Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
+                {/*<!-- Nav Item - categories -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/CategoriesInDb">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Users</span></a>
+                        <span>Categories</span>
+                    </Link>
+                </li>
+
+                {/*<!-- Nav Item - Users -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/Users">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Users</span>
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}

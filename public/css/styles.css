@@ -204,7 +204,10 @@ li.hover-color:hover a{font-weight: bold;}
 .div-img-profile{width: 100%;}
 .div-img-profile img{width: 100%;display: block;}
 .div-info-user{padding: 10px;margin: 12px 0;width: 100%;background-color: #407907;color: #fff;}
- 
+.div-edit-user{padding: 10px;margin: 12px 0;width: 10%;background-color: #a1a0a5;}
+.div-edit-user a{text-decoration: none;color: #fff;}
+.div-edit-user:hover{background-color: #dc042c;}
+
 #main{
     width: 100%;
     margin: 0 auto;
@@ -259,7 +262,7 @@ h3{color: #87868a;margin: 10px;padding: 5px;font-weight: 400;font-size: 16px;tex
 
 
 .div-allproducts{margin: 25px 0px;text-align: center;}
-.div-allproducts a{text-decoration: none;padding: 10px 15px;font-size: 16px;color: #fff;background:linear-gradient(35deg, rgb(243, 73, 73),rgb(252, 171, 185),#9e4454);font-weight: 400;border-radius: 2px;box-shadow: 1px 1px 6px rgba(195, 191, 191, 0.4);}
+.div-allproducts a{text-decoration: none;padding: 10px 15px;font-size: 16px;color: #fff;background-color: #9e4454;font-weight: 400;border-radius: 2px;box-shadow: 1px 1px 6px rgba(195, 191, 191, 0.4);}
 .div-allproducts a:hover{background: #dc042c;}
 
 #box-info{width: 100%;padding-top: 15px;padding-bottom: 10px;font-size: 16px;}
@@ -506,6 +509,8 @@ a.button-form {text-decoration: none;}
 .div-edit-delete a:hover{background-color: #407907;}
 .div-edit-delete button{border: none;padding: 10px;font-size: 16px;font-weight: 300;color: #fff;background-color: #dc042c;}
 .div-edit-delete button:hover{background-color: #eb055d;}
+.buttonsubmitcomment{border: none;background-color:#87868a;color: #fff;font-size: 12px;width: 20%;padding: 8px;font-weight: 300;margin: 20px;}
+.buttonsubmitcomment:hover{background-color: #9e4454;}
 
 
 .section-comment-detail{margin: 15px 0px;}
