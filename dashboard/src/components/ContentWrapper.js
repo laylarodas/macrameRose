@@ -3,7 +3,7 @@ import TopBar from './TopBar';
 import Footer from './Footer';
 import ContentRowTop from './ContentRowTop';
 import Product from './Product';
-import User from './User';
+import UserInDb from './UserInDb';
 
 function ContentWrapper(){
     return (
@@ -15,7 +15,7 @@ function ContentWrapper(){
                     <TopBar />
                     <ContentRowTop />
                     <Product />
-                    <User />
+                    <UserInDb />
                     <Footer />
                 </div>
             </div>    

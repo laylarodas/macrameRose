@@ -30,13 +30,13 @@ function SideBar(){
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">Acciones</div>
 
                 {/*<!-- Nav Item - Products -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/products">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Products</span>
+                        <span>Productos</span>
                     </Link>
                 </li>
 
@@ -44,7 +44,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Last Product</span>
+                        <span>Último Producto</span>
                     </Link>
                 </li>
 
@@ -52,7 +52,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/CategoriesInDb">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Categories</span>
+                        <span>Categorias</span>
                     </Link>
                 </li>
 
@@ -60,7 +60,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/Users">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Users</span>
+                        <span>Usuarios</span>
                     </Link>
                 </li>
 

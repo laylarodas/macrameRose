@@ -6,7 +6,7 @@ import CategoriesInDb from './CategoriesInDb';
 import NotFound from './NotFound';
 import Product from './Product';
 import {Route,Switch} from 'react-router-dom';
-import User from './User';
+import UserInDb from './UserInDb';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
             <Route path="/products" component={Product}></Route>
             <Route path="/LastProductInDb" component={LastProductInDb}></Route>
             <Route path="/CategoriesInDb" component={CategoriesInDb}></Route>
-            <Route path="/users" component={User}></Route>
+            <Route path="/users" component={UserInDb}></Route>
             <Route component={NotFound}></Route>
           </Switch>
         </div>

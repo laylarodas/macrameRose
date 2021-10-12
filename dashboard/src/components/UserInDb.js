@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserList from './UserList';
 
-class User extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { 
-			usersList:[]
-		}
-	}
+function UserInDb() {
+    const [users, setUsers] = useState([]);
 
-	getUsers(){
-        fetch('/api/users').then(r=>r.json()).then(respuesta=>{
-            this.setState({usersList:respuesta.data})
+    useEffect (() => {
+        fetch('/api/users')
+        .then(response => response.json())
+        .then(response=>{
+            setUsers(response.data)
         })
-    }
+        .catch(error => console.error(error));
+    }, []);
 
-    componentDidMount(){
-        this.getUsers();
-    }
+    useEffect(()=>{ 
+        console.log('%cse actualizo el componente','color:yellow')
+    },[users])
 
-	render() { 
-		return ( 
+    useEffect (()=>{
+        return () => console.log('%cse desmonto el componente','color: red');
+    },[])
 
-			<React.Fragment>
+    return(
+        <React.Fragment>
 				<div className="container-fluid">
 						 {/*<!-- PRODUCTS LIST -->*/}
-					<h1 className="h3 mb-2 text-gray-800">All the users in the Database</h1>
+					<h1 className="h3 mb-2 text-gray-800">Todos los Usuarios</h1>
 					
 					{/*<!-- DataTales Example -->*/}
 					<div className="card shadow mb-4">
@@ -50,7 +50,7 @@ class User extends Component {
 									</tfoot>
 									<tbody>
 										{
-											this.state.usersList.map((user,i) => {
+											users.map((user,i) => {
 												return <UserList key={i} {...user} />
 											})
 										}
@@ -62,8 +62,8 @@ class User extends Component {
 				</div>
 				    
         	</React.Fragment>
-    	)
-	}
+    )
 }
- 
-export default User;
+
+
+export default UserInDb;

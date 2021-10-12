@@ -1,71 +1,72 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 
-class Product extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { 
-			productsList:[]
-		}
-	}
+function Product (){
+	const [products, setProducts] = useState([]);
 
-	getProducts(){
-        fetch('/api/products').then(r=>r.json()).then(respuesta=>{
-            this.setState({productsList:respuesta.data})
+
+	useEffect(()=>{
+		fetch('/api/products')
+		.then(response => response.json())
+		.then(response => {
+            setProducts(response.data)
         })
-    }
+		.catch(error => console.error(error));
+	},[]);
 
-    componentDidMount(){
-        this.getProducts();
-    }
+	useEffect(()=>{
+        console.log('%cse actualizo el componenete','color:yellow')
+    },[products]);
 
-	render() { 
-		return ( 
+    useEffect(()=>{
+        return () => console.log('%cse desmonto el componenete')
+    },[])
 
-			<React.Fragment>
-				<div className="container-fluid">
-						 {/*<!-- PRODUCTS LIST -->*/}
-					<h1 className="h3 mb-2 text-gray-800">All the products in the Database</h1>
-					
-					{/*<!-- DataTales Example -->*/}
-					<div className="card shadow mb-4">
-						<div className="card-body">
-							<div className="table-responsive">
-								<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
-									<thead>
-										<tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Discount</th>
-                                            <th>Decription</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Discount</th>
-                                            <th>Decription</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										{
-											this.state.productsList.map((product,i) => {
-												return <ProductList key={i} {...product} />
-											})
-										}
-									</tbody>
-								</table>
-							</div>
+	return ( 
+
+		<React.Fragment>
+			<div className="container-fluid">
+					 {/*<!-- PRODUCTS LIST -->*/}
+				<h1 className="h3 mb-2 text-gray-800">Todos los productos</h1>
+				
+				{/*<!-- DataTales Example -->*/}
+				<div className="card shadow mb-4">
+					<div className="card-body">
+						<div className="table-responsive">
+							<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Nombre</th>
+										<th>Precio</th>
+										<th>Descuento</th>
+										<th>Descripción</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Id</th>
+										<th>Nombre</th>
+										<th>Precio</th>
+										<th>Descuento</th>
+										<th>Descripción</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									{
+										products.map((product,i) => {
+											return <ProductList key={i} {...product} />
+										})
+									}
+								</tbody>
+							</table>
 						</div>
-					</div>            
-				</div>
-				    
-        	</React.Fragment>
-    	)
-	}
+					</div>
+				</div>            
+			</div>
+				
+		</React.Fragment>
+	)
 }
  
 export default Product;
