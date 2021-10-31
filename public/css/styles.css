@@ -226,18 +226,33 @@ li.hover-color:hover a{font-weight: bold;}
 
 
 
-
-
 /* PROFILE-MAIN */
 .main-profile{margin: 40px 0}
-.section-profile{margin: 30px 20px;padding: 10px;}
-.greet-user{padding: 5px;border-bottom: 1px solid #dc042c;margin: 10px 0;}
-.div-img-profile{width: 100%;}
-.div-img-profile img{width: 100%;display: block;}
-.div-info-user{padding: 10px;margin: 12px 0;width: 100%;background-color: #407907;color: #fff;}
-.div-edit-user{padding: 10px;margin: 12px 0;width: 10%;background-color: #a1a0a5;}
-.div-edit-user a{text-decoration: none;color: #fff;}
-.div-edit-user:hover{background-color: #dc042c;}
+.my-account{width: 100%;text-align: center;}
+.my-account h2{font-size: 26px;font-weight: 400;}
+.section-profile{padding: 30px;display: flex;flex-wrap: wrap;align-items: center;border-bottom: 1px solid #d9d8db;margin: 0 20px 10px 20px;}
+.greet-user{padding: 5px;border-bottom: 1px solid #dc042c;margin: 10px 0;width: 100%;}
+.div-img-profile{display: flex;justify-content: center;width: 100%;}
+.div-img-profile img{width: 100px;height: 100px;border-radius: 10px;}
+.user-data, .user-shop{width: 100%;}
+.my-data{width: 100%;padding: 20px 0 20px 0;text-align: center;display: flex;justify-content: space-between;align-items: center;}
+.my-data h2{font-size: 16px;font-weight: 300;text-align: center;}
+.my-data i{font-size: 14px; color: #87868a;}
+.info-user {width: 100%;padding: 10px 0 10px 0;}
+.info-user p{font-size: 14px;padding: 5px;border-bottom: 1px solid #c5c4c8;}
+.my-data a{text-decoration: none;color: #dc042c;font-weight: 800;}
+.my-shop{width: 100%;padding-top: 40px;text-align: center;display: flex;align-items: center;justify-content: center;}
+.my-shop h2{font-size: 16px;font-weight: 300;text-align: center;}
+.my-shop i{font-size: 14px; color: #87868a;margin-right: 5px;}
+.user-links{width: 100%;padding: 10px 0 20px 0;text-align: center;display: flex;flex-wrap: wrap;}
+.user-links p{width: 100%;padding: 5px;font-size: 14px;color: #9e4454;}
+.user-links h2{width: 100%;padding: 15px 0;font-weight: 200;}
+.user-links a{text-decoration: none;color: #9e4454;margin-right: 2px;}
+
+
+
+
+
 
 #main{
     width: 100%;
@@ -917,10 +932,13 @@ a.button-form {text-decoration: none;}
 
     .subtitle, .subtitle4, .subtitle2{ font-size: 60px;}
 
-    .section-profile{margin: 30px 20px;padding: 10px;}
-    .greet-user{padding: 5px;margin: 10px 0;}
-    .div-img-profile{width: 40%;}
-    .div-info-user{padding: 10px;margin: 12px 0;width: 40%;}
+
+    /* PROFILE*/
+    .div-img-profile{width: 20%;}
+    .user-data{width: 40%;}
+    .user-shop{width: 40%;}
+
+    
 
     /*PRODUCT CREATE*/
     .form-productCreate{display: flex;flex-wrap: wrap;}

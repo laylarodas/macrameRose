@@ -4,18 +4,38 @@
 <body>
     <%- include('partials/header') %> 
     <main class="main-profile">
+        <div class="my-account">
+            <p>Inicio / Mi Cuenta</p>
+            <h2>MI CUENTA</h2>
+        </div>
         <section class="section-profile">
-            <h2 class="greet-user">HOLA <%= user.name.toUpperCase() %>!</h2>
+            <h2 class="greet-user">HOLA <%= user.userName.toUpperCase() %>!</h2>
             <div class="div-img-profile">
                 <img src="/img/avatars/<%= user.avatar %>" alt="<%= user.name %> ">
             </div>
-            <div class="div-info-user">
-                <h2><%= user.email %></h2>
+            <div class="user-data">
+                <div class="my-data">
+                    <i class="fas fa-user"></i><h2>MIS DATOS</h2><a href="/user/edit/<%= user.id %>">Editar</a>
+                </div>
+                <div class="info-user">
+                    <p><strong>Nombre:</strong> <%=user.name %></p>
+                    <p> <strong>Email:</strong> <%= user.email %></p>
+                </div>
             </div>
-            <div class="div-edit-user">
-                <a href="/user/edit/<%= user.id %>">EDITAR USUARIO</a>
+            <div class="user-shop">
+                <div class="my-shop">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h2>MIS COMPRAS</h2>
+                </div>
+                <div class="user-links">
+                    <h2>¡Hacé tu primera compra!</h2>
+                    <p><a href="/products">Ir a la tienda</a><i class="fas fa-chevron-right"></i></p>
+                </div>
             </div>
+            
+            
         </section>
+
         
         <%- include('partials/infoShop') %> 
     </main>
