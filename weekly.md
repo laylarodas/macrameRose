@@ -32,7 +32,14 @@
        - Validaciones del registro de usuario, login y editar perfil.
        - Algunas validaciones front de los formularios creación y edición de productos.  
 - Sprint 8:  
-
+   - Apis de usuarios:  
+       - End point que entrega la lista completa de usuarios.  
+       - End point para consultar los detalles de un usuario en particular.  
+   - Apis de productos:  
+       - End point que entrega la lista completa de los productos.   
+       - End point para consultar el detalle de un producto en particular.  
+   - Dashboard con React:  
+       - Contiene los paneles de total de productos, total de categorias, total de usuarios y ultimo producto ingresado.  
        
         
 ### Impedimentos encontrados:  
@@ -44,6 +51,8 @@
    - Validacion front de correo electronico si existe en la base de datos.
    - Validacion front de elementos input-checkbox y select.  
 - Sprint 8:  
+   - Url para las imagenes de los productos.Investigar  
+   - Paginado de productos. Investigar
 
 ### Tareas a realizar:  
 - Sprint 5: 
@@ -56,4 +65,6 @@
    - Repasar las clases de la cursada, para completar las tareas pendientes en Trello.
    - Investigar sobre validaciones front en elementos input-checkbox y select.
    - Investugar sobre validar front correo electronico si ya se encuentra registrado o no en la base de datos.  
-Sprint 8:  
+- Sprint 8:  
+   - Agregar imagenes al panel de ultimo producto ingresado.    
+   - Paginado de productos.   
