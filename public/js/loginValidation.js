@@ -4,10 +4,10 @@ window.onload = function () {
     let password = document.querySelector(".password");
 
 
-    email.focus();
+    //email.focus();
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
     
-    email.addEventListener('keyup',function(){   
+    email.addEventListener('focusin',function(){   
         if (re.test(email.value)) {
             var errorDiv = document.querySelector(".emailErrorDiv")
             errorDiv.style.display = "none"
@@ -36,7 +36,7 @@ window.onload = function () {
         }else{
             var errorDiv = document.querySelector(".passwordErrorDiv")
             errorDiv.style.display = "block";
-            errorDiv.innerHTML = "No puedo estar vacio. Min 8 caracteres"}
+            errorDiv.innerHTML = "Ingrese contraseña. Min 8 caracteres"}
     })
     
 

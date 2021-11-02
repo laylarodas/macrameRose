@@ -7,7 +7,17 @@ window.onload = function () {
     let password = document.querySelector(".password");
     
 
-    name.focus();
+    //name.focus();
+    name.addEventListener('focusin',function(){    
+        if (name.value.length > 1) {
+            var errorDiv = document.querySelector(".nameErrorDiv")
+            errorDiv.style.display = "none";
+        }else{
+            var errorDiv = document.querySelector(".nameErrorDiv")
+            errorDiv.style.display = "block";
+            errorDiv.innerHTML = "Ingrese nombre completo"
+        }
+    });
 
     name.addEventListener('keyup',function(){    
         if (name.value.length > 1) {
@@ -19,6 +29,17 @@ window.onload = function () {
             errorDiv.innerHTML = "Tienes que escribir un nombre completo.Min 2 caracteres."
         }
     });
+    userName.addEventListener('focusin',function(){    
+        if (userName.value.length > 1) {
+            var errorDiv = document.querySelector(".userNameErrorDiv")
+            errorDiv.style.display = "none";
+        }else{
+            var errorDiv = document.querySelector(".userNameErrorDiv")
+            errorDiv.style.display = "block";
+            errorDiv.innerHTML = "Ingrese nombre de usuario"
+        }
+    });
+
     userName.addEventListener('keyup',function(){    
         if (userName.value.length > 1) {
             var errorDiv = document.querySelector(".userNameErrorDiv")
@@ -32,6 +53,7 @@ window.onload = function () {
 
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
 
+    
     email.addEventListener('focusout',function(){   
         if (re.test(email.value)) {
             var errorDiv = document.querySelector(".emailErrorDiv")
@@ -41,7 +63,8 @@ window.onload = function () {
             errorDiv.style.display = "block";
             errorDiv.innerHTML = "Debes escribir un formato de correo electronico válido."
         }
-    });
+    })
+    
 
 
     avatar.addEventListener('focusout',function(){  
@@ -50,7 +73,7 @@ window.onload = function () {
         if (!re.exec(fname) && avatar.value.length != 0) {
             var errorDiv = document.querySelector(".avatarErrorDiv2")
             errorDiv.style.display = "block";
-            errorDiv.innerHTML = "El formato de imagen no es válido!"
+            errorDiv.innerHTML = "El formato de imagen no es válido .png, .jpg, .jpeg"
         }else{
             var errorDiv = document.querySelector(".avatarErrorDiv2")
             errorDiv.style.display = "none";
@@ -64,7 +87,7 @@ window.onload = function () {
     }else{
         var errorDiv = document.querySelector(".avatarErrorDiv")
         errorDiv.style.display = "block";
-        errorDiv.innerHTML = "No has seleccionado una imagen aún!"
+        errorDiv.innerHTML = "No has seleccionado una imagen"
     }});
 
     
@@ -75,7 +98,7 @@ window.onload = function () {
         }else{
             var errorDiv = document.querySelector(".passwordErrorDiv")
             errorDiv.style.display = "block";
-            errorDiv.innerHTML = "No puedo estar vacio. Min 8 caracteres"}
+            errorDiv.innerHTML = " Ingrese contraseña. Min 8 caracteres"}
     })
     
 

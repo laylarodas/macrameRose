@@ -104,9 +104,11 @@ const usersController = {
             where: {
                 id: req.params.id
             }
+        }).then(function(){
+            res.redirect('/user/profile');
         })
 
-        res.redirect('/user/profile');
+        
 
 
 
