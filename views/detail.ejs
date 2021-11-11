@@ -23,7 +23,7 @@
                     <% let finalPrice = toThousand((product.price - (product.price * product.discount / 100)).toFixed(0));%>
                     <% if (product.discount > 0) { 	%>
                         <p class="discount-detail">
-                            <span><%= toThousand(product.price) %></span>
+                            <span>$<%= toThousand(product.price) %></span>
                             /
                             <b><%= product.discount %>% OFF</b>
                         </p>

@@ -5,7 +5,7 @@
     <%- include('partials/headerCreate') %>
     <main id="main-productCreate">
         <section id="section-title-productCreate">
-            <h2>ESTAS EDITANDO: <%= productToEdit.name %> </h2>
+            <h2>ESTAS EDITANDO: <%= productToEdit.name.toUpperCase() %> </h2>
         </section>
         <section id="section-form-productCreate">
             <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-productCreate">

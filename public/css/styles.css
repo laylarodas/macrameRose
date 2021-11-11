@@ -553,10 +553,10 @@ a.button-form {text-decoration: none;}
 .features-size{display: flex;flex-wrap: wrap;flex-direction: row;justify-content: space-around;align-items: center;}
 .features-size p{padding: 5px;}
 
-.div-edit-delete{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;margin: 20px 0px;}
+.div-edit-delete{display: flex;flex-wrap: wrap;justify-content: flex-end;align-items: center;margin: 20px 0px;}
 .div-edit-delete a{text-decoration: none; padding: 10px;font-size: 16px;font-weight: 300;color: #fff;background-color: #4f9509;}
 .div-edit-delete a:hover{background-color: #407907;}
-.div-edit-delete button{border: none;padding: 10px;font-size: 16px;font-weight: 300;color: #fff;background-color: #dc042c;}
+.div-edit-delete button{border: none;margin-left: 5px;padding: 10px;font-size: 16px;font-weight: 300;color: #fff;background-color: #dc042c;}
 .div-edit-delete button:hover{background-color: #eb055d;}
 .buttonsubmitcomment{border: none;background-color:#87868a;color: #fff;font-size: 12px;width: 20%;padding: 8px;font-weight: 300;margin: 20px;}
 .buttonsubmitcomment:hover{background-color: #9e4454;}
@@ -787,7 +787,8 @@ a.button-form {text-decoration: none;}
 .input-newcategory{width: 100%;border: none;border-bottom: 1px solid #4f9509;padding: 10px;}
 #div-variants-productCreate{font-weight: 500;padding: 10px 20px;text-align: left;}
 #div-variants-productCreate label{display: block;color: #87868a;font-size: 18px;text-align: left;padding: 5px;font-weight: 500;margin-bottom: 10px;}
-#color-variant select, #size-variant select{background-color: #4f9509;color: #fff; padding: 8px;width: 100%;font-weight: 500;padding: 10px 20px;text-align: left;}
+#color-variant select{background-color: #4f9509;color: #fff; padding: 8px;width: 100%;font-weight: 500;padding: 10px 20px;text-align: left;font-size: 12px;}
+#size-variant select{background-color: #4f9509;color: #fff; padding: 8px;width: 100%;font-weight: 500;padding: 10px 20px;text-align: left;font-size: 12px;}
 
 #div-price-productCreate label{ color: #87868a;font-size: 18px;text-align: left;padding: 5px;font-weight: 500;margin-bottom: 10px;}
 
