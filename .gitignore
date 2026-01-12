@@ -1,2 +1,19 @@
 node_modules
 pruebaVista.ejs
+
+# Variables de entorno
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/

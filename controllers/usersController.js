@@ -1,11 +1,6 @@
 const { validationResult } = require('express-validator');
-const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-
-
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const Op = db.Sequelize.Op;
 
 
 const usersController = {

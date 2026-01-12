@@ -1,14 +1,8 @@
-const path = require('path');
-const fs = require('fs');
 const { validationResult } = require('express-validator');
-
 const db = require('../database/models');
-const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+// Formatea números con separador de miles
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
