@@ -89,17 +89,17 @@
                 <div id="box-productsList">
                     <% products.forEach(product => { 
                         let finalPrice = product.price - (product.price * product.discount / 100); 
-                        %>
+                    %>
                         <article class="article-productsList">
+                            <% if(product.discount > 0) { %>
+                                <span class="discount"><%= product.discount %>% OFF</span>
+                            <% } %>
                             <a href="/products/detail/<%= product.id %>">
-                                <img src="/img/products/<%= product.image %> " alt="<%= product.name %>" class="img-width">
+                                <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="img-width">
                                 <div id="description-product">
                                     <i class="fas fa-truck"></i>
                                     <h4 class="name-product"><%= product.name.toUpperCase() %></h4>
-                                    <p class="price hidden-product">$<%= toThousand(finalPrice.toFixed(0)) %></p>
-                                    <% if(product.discount > 0) { %>
-                                        <p class="discount hidden-product"><%= product.discount %>% off</p>
-                                    <% } %>
+                                    <p class="price">$<%= toThousand(finalPrice.toFixed(0)) %></p>
                                 </div>
                             </a>
                         </article>

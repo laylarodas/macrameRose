@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head', {title: 'Contacto - Macramé Rose'}) %>
+<body>
+    <%- include('partials/header') %>
+    
+    <main class="section-page-content">
+        <!-- Encabezado -->
+        <div class="about-intro-box">
+            <h3><i class="fas fa-comments"></i> Contacto</h3>
+            <p class="page-text" style="max-width: 600px; margin: 0 auto;">
+                ¿Tenés alguna consulta sobre nuestros productos? ¿Querés hacer un pedido personalizado? 
+                ¡Estamos para ayudarte!
+            </p>
+        </div>
+        
+        <!-- Grid principal -->
+        <div class="page-grid-two">
+            <!-- Formulario -->
+            <div class="page-info-box">
+                <h3><i class="fas fa-paper-plane"></i> Envianos un mensaje</h3>
+                <form action="/contact" method="POST" class="design-form" style="box-shadow: none; padding: 0;">
+                    <div class="div-form">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" class="input-control" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="div-form">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="input-control" placeholder="tucorreo@email.com" required>
+                    </div>
+                    <div class="div-form">
+                        <label for="phone">Teléfono (opcional)</label>
+                        <input type="tel" id="phone" name="phone" class="input-control" placeholder="11-1234-5678">
+                    </div>
+                    <div class="div-form">
+                        <label for="subject">Asunto</label>
+                        <select id="subject" name="subject" class="input-control">
+                            <option value="">Seleccionar asunto</option>
+                            <option value="consulta">Consulta general</option>
+                            <option value="pedido">Pedido personalizado</option>
+                            <option value="envio">Consulta sobre envío</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="div-form">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" class="input-control" rows="5" placeholder="Contanos en qué podemos ayudarte..." required></textarea>
+                    </div>
+                    <button type="submit" class="button-form">
+                        <i class="fas fa-paper-plane"></i> Enviar mensaje
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div>
+                <div class="page-info-box" style="margin-bottom: var(--space-md);">
+                    <h3><i class="fas fa-info-circle"></i> Información de contacto</h3>
+                    
+                    <div class="info-item-box">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p>011-3245-2344</p>
+                            <p style="font-size: 12px; color: var(--text-light);">Respondemos de Lun a Vie, 9 a 18hs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item-box">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>macrameRose@gmail.com</p>
+                            <p style="font-size: 12px; color: var(--text-light);">Respondemos en 24-48hs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item-box">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <strong>Instagram</strong>
+                            <p>@macramerose</p>
+                            <p style="font-size: 12px; color: var(--text-light);">Mirá nuestras últimas creaciones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <p>Buenos Aires, Argentina</p>
+                            <p style="font-size: 12px; color: var(--text-light);">Envíos a todo el país</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Horarios -->
+                <div class="page-info-box">
+                    <h3><i class="fas fa-clock"></i> Horarios de atención</h3>
+                    <ul class="page-list">
+                        <li><strong>Lunes a Viernes:</strong> 9:00 - 18:00</li>
+                        <li><strong>Sábados:</strong> 10:00 - 14:00</li>
+                        <li><strong>Domingos y feriados:</strong> Cerrado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ rápido -->
+        <div class="info-section-box">
+            <h3><i class="fas fa-question-circle"></i> Preguntas frecuentes</h3>
+            <div class="page-grid-three">
+                <div class="info-block">
+                    <h4><i class="fas fa-palette"></i> ¿Hacen pedidos personalizados?</h4>
+                    <p class="page-text">¡Sí! Podemos crear piezas únicas según tus preferencias de color, tamaño y diseño.</p>
+                </div>
+                <div class="info-block">
+                    <h4><i class="fas fa-truck"></i> ¿Cuánto tarda un envío?</h4>
+                    <p class="page-text">Los envíos dentro de CABA demoran 2-3 días. Interior del país 4-7 días hábiles.</p>
+                </div>
+                <div class="info-block">
+                    <h4><i class="fas fa-credit-card"></i> ¿Qué medios de pago aceptan?</h4>
+                    <p class="page-text">Aceptamos transferencia, Mercado Pago y tarjetas en hasta 18 cuotas sin interés.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

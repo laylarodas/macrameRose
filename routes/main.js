@@ -13,6 +13,8 @@ router.get('/search', mainController.search);
 
 
 router.get('/contact', mainController.contact);
+router.get('/about', mainController.about);
+router.get('/shipping', mainController.shipping);
 
 router.get('/cart', mainController.cart);
 

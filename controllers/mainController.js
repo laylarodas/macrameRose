@@ -1,12 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
 const db = require('../database/models');
-const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -32,9 +25,14 @@ const mainController = {
 
         res.render('index',{inSale,featured,categories,toThousand});
     },
-    contact:  (req,res) =>{
-        res.send('Contact');
-        //todavia no esta creada esta pagina
+    contact: (req, res) => {
+        res.render('contact');
+    },
+    about: (req, res) => {
+        res.render('about');
+    },
+    shipping: (req, res) => {
+        res.render('shipping');
     },
     search: async function(req,res){
         /*let search = req.query.keywords;

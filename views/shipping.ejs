@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head', {title: 'Envíos - Macramé Rose'}) %>
+<body>
+    <%- include('partials/header') %>
+    
+    <main class="section-page-content">
+        <!-- Hero -->
+        <div class="shipping-intro-box">
+            <h3><i class="fas fa-truck"></i> Envíos a todo el país</h3>
+            <p class="page-text" style="max-width: 600px; margin: 15px auto 0;">
+                Llevamos nuestras creaciones artesanales hasta la puerta de tu casa. 
+                ¡Hacemos envíos a todas las provincias de Argentina!
+            </p>
+        </div>
+        
+        <!-- Opciones de envío -->
+        <h3 style="margin-top: var(--space-lg);"><i class="fas fa-box-open"></i> Opciones de envío</h3>
+        <div class="page-grid-three">
+            <div class="shipping-card-box">
+                <i class="fas fa-walking"></i>
+                <h4>Retiro en punto</h4>
+                <p class="shipping-price">Gratis</p>
+                <ul class="page-list-simple">
+                    <li>Coordinamos día y hora</li>
+                    <li>Zona: CABA</li>
+                    <li>Listo en 24-48hs</li>
+                </ul>
+            </div>
+            <div class="shipping-card-box featured">
+                <span class="badge-featured">Más elegido</span>
+                <i class="fas fa-truck"></i>
+                <h4>Envío a domicilio</h4>
+                <p class="shipping-price">Desde $2.500</p>
+                <ul class="page-list-simple">
+                    <li>CABA: 2-3 días hábiles</li>
+                    <li>Interior: 4-7 días hábiles</li>
+                    <li>Seguimiento online</li>
+                </ul>
+            </div>
+            <div class="shipping-card-box">
+                <i class="fas fa-building"></i>
+                <h4>Correo Argentino</h4>
+                <p class="shipping-price">Desde $1.800</p>
+                <ul class="page-list-simple">
+                    <li>Retiro en sucursal</li>
+                    <li>Todo el país</li>
+                    <li>5-10 días hábiles</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Info de zonas -->
+        <div class="info-section-box">
+            <h3><i class="fas fa-map-marked-alt"></i> Tiempos de entrega por zona</h3>
+            <div class="page-grid-two">
+                <div class="info-block">
+                    <h4><i class="fas fa-city"></i> CABA y GBA</h4>
+                    <ul class="page-list">
+                        <li><strong>Envío express:</strong> 24-48 horas</li>
+                        <li><strong>Envío estándar:</strong> 2-3 días hábiles</li>
+                        <li><strong>Costo:</strong> desde $2.500</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h4><i class="fas fa-map"></i> Interior del país</h4>
+                    <ul class="page-list">
+                        <li><strong>Zona centro:</strong> 3-5 días hábiles</li>
+                        <li><strong>Zona sur/norte:</strong> 5-7 días hábiles</li>
+                        <li><strong>Costo:</strong> según localidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Políticas -->
+        <div class="page-grid-two">
+            <div class="page-info-box">
+                <h3 style="text-align: left;"><i class="fas fa-shield-alt"></i> Garantía de envío</h3>
+                <p class="page-text">
+                    Todas nuestras piezas son empacadas con el mayor cuidado para que lleguen 
+                    en perfectas condiciones a tu hogar.
+                </p>
+                <ul class="page-list-simple">
+                    <li>Embalaje protector reforzado</li>
+                    <li>Seguimiento de envío en tiempo real</li>
+                    <li>Seguro incluido en todos los envíos</li>
+                    <li>Reenvío sin cargo si hay daños</li>
+                </ul>
+            </div>
+            <div class="page-info-box">
+                <h3 style="text-align: left;"><i class="fas fa-undo"></i> Devoluciones y cambios</h3>
+                <p class="page-text">
+                    Tu satisfacción es nuestra prioridad. Si no estás conforme con tu compra, 
+                    tenemos una política de devolución flexible.
+                </p>
+                <ul class="page-list-simple">
+                    <li>7 días para solicitar cambio</li>
+                    <li>Producto sin uso y en embalaje original</li>
+                    <li>Cambio por otro producto o crédito</li>
+                    <li>Consultar costo de envío de devolución</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Preguntas frecuentes -->
+        <div class="features-section">
+            <h3><i class="fas fa-question-circle"></i> Preguntas frecuentes sobre envíos</h3>
+            <div class="page-grid-two">
+                <div class="feature-box" style="text-align: left;">
+                    <h4><i class="fas fa-clock" style="color: var(--color-primary); margin-right: 8px;"></i> ¿Cuándo se despacha mi pedido?</h4>
+                    <p>Los pedidos se despachan dentro de las 48 horas hábiles posteriores a confirmar el pago. 
+                    Te enviamos el código de seguimiento por email.</p>
+                </div>
+                <div class="feature-box" style="text-align: left;">
+                    <h4><i class="fas fa-search" style="color: var(--color-primary); margin-right: 8px;"></i> ¿Cómo sigo mi envío?</h4>
+                    <p>Una vez despachado, recibís un email con el número de seguimiento. 
+                    Podés rastrear tu paquete en la web del correo o desde Mercado Envíos.</p>
+                </div>
+                <div class="feature-box" style="text-align: left;">
+                    <h4><i class="fas fa-dollar-sign" style="color: var(--color-primary); margin-right: 8px;"></i> ¿El envío tiene costo?</h4>
+                    <p>Sí, el costo depende de tu ubicación. Calculá el envío agregando productos 
+                    al carrito. ¡Envío gratis en compras mayores a $50.000!</p>
+                </div>
+                <div class="feature-box" style="text-align: left;">
+                    <h4><i class="fas fa-home" style="color: var(--color-primary); margin-right: 8px;"></i> ¿Qué pasa si no estoy en casa?</h4>
+                    <p>El correo intenta entregar 2 veces. Si no te encuentra, 
+                    deja un aviso y podés retirarlo en la sucursal más cercana.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-box">
+            <h3>¿Tenés dudas sobre tu envío?</h3>
+            <p>Contactanos y te ayudamos con gusto</p>
+            <a href="/contact" class="button-form"><i class="fas fa-comments"></i> Contactar</a>
+        </div>
+    </main>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

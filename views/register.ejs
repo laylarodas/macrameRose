@@ -1,86 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-    <%- include('partials/head',{title: 'Register - Macramé Rose'}) %>
+<html lang="es">
+    <%- include('partials/head',{title: 'Crear Cuenta - Macramé Rose'}) %>
 <body>
-    <%- include('partials/headerUsers') %>
+    <%- include('partials/header') %>
+    
     <main id="main-register">
         <div class="title-register">
-            <h2>CREAR CUENTA</h2>
+            <h2>Crear Cuenta</h2>
+            <p style="color: var(--text-light); margin-top: 8px;">Únete a nuestra comunidad artesanal</p>
         </div>
+        
         <form action="/user/register" method="POST" class="create-form" enctype="multipart/form-data">
+            <!-- Social login -->
             <div class="div-network">
-                <div class="div-facebookregister"><a href="http://www.facebook.com/"><i class="fab fa-facebook-f"></i>REGISTRARSE CON FACEBOOK</a>
+                <div class="div-facebookregister">
+                    <a href="http://www.facebook.com/">
+                        <i class="fab fa-facebook-f"></i>
+                        Continuar con Facebook
+                    </a>
                 </div>
-                <div class="div-googleregister"><a href="http://www.google.com/"><i class="fab fa-google"></i>REGISTRARSE CON GOOGLE</a>
+                <div class="div-googleregister">
+                    <a href="http://www.google.com/">
+                        <i class="fab fa-google"></i>
+                        Continuar con Google
+                    </a>
                 </div>
                 <div class="break">
-                    <p>o</p>
+                    <p>o registrate con email</p>
                 </div>
             </div>
+            
+            <!-- Form fields -->
             <div class="div-formregister">
                 <div class="control-form">
-                    <label for="usuario">NOMBRE COMPLETO</label>
-                    <input id="name" type="text" name="name" class="control name" placeholder="Nombre completo" value="<%= locals.oldData ? oldData.name : null %>">
+                    <label for="name">Nombre completo</label>
+                    <input id="name" type="text" name="name" class="control name" placeholder="Tu nombre y apellido" value="<%= locals.oldData ? oldData.name : '' %>">
                     <% if (locals.errors && errors.name) {%>
-                        <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.name.msg %></div>
+                        <div class="text-danger"><i class="fas fa-exclamation-circle"></i><%= errors.name.msg %></div>
                     <% } %>
-                    <div class="nameErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
-                    
                 </div>
+                
                 <div class="control-form">
-                    <label for="">NOMBRE DE USUARIO</label>
-                    <input id="UserName" type="text" name="userName" class="control userName" placeholder="Nombre de usuario" value="<%= locals.oldData ? oldData.userName : null %>">
+                    <label for="userName">Nombre de usuario</label>
+                    <input id="userName" type="text" name="userName" class="control userName" placeholder="@tunombredeusuario" value="<%= locals.oldData ? oldData.userName : '' %>">
                     <% if (locals.errors && errors.userName) {%>
-                        <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.userName.msg %></div>
+                        <div class="text-danger"><i class="fas fa-exclamation-circle"></i><%= errors.userName.msg %></div>
                     <% } %>
-                    <div class="userNameErrorDiv errorDiv" style="color: rgb(255,0,0);"style="display:none;" ></div>
                 </div>
+                
                 <div class="control-form">
-                    <label for="email">EMAIL</label>
-                    <input id="email" type="text" name="email" class="control email" placeholder="Ej: abcd@efgh.com" value="<%= locals.oldData ? oldData.email : null %>">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" class="control email" placeholder="tucorreo@email.com" value="<%= locals.oldData ? oldData.email : '' %>">
                     <% if (locals.errors && errors.email) {%>
-                        <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.email.msg %></div>
+                        <div class="text-danger"><i class="fas fa-exclamation-circle"></i><%= errors.email.msg %></div>
                     <% } %>
-                    <div class="emailErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
                 </div>
+                
                 <div class="control-form">
-                    <label>Añadir Avatar:</label>
-                    <input type="file" name="avatar" id="avatar" class="control avatar">
+                    <label for="avatar">Foto de perfil <span style="color: var(--text-light); font-weight: normal;">(opcional)</span></label>
+                    <input type="file" name="avatar" id="avatar" class="control avatar" accept="image/*">
                     <% if (locals.errors && errors.avatar) {%>
-                        <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.avatar.msg %></div>
+                        <div class="text-danger"><i class="fas fa-exclamation-circle"></i><%= errors.avatar.msg %></div>
                     <% } %>
-                    <div class="avatarErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
-                    <div class="avatarErrorDiv2 errorDiv" style="color: rgb(255,0,0);" style="display:none;" ></div> 
                 </div>
+                
                 <div class="control-form">
-                    <label>CONTRASEÑA</label>
-                    <input type="password" name="password" id="password" class="control password" placeholder="Ingrese contraseña">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" class="control password" placeholder="Mínimo 8 caracteres">
                     <% if (locals.errors && errors.password) {%>
-                    <div class="text-danger"><i class="fas fa-exclamation-triangle"></i><%= errors.password.msg %></div>
+                        <div class="text-danger"><i class="fas fa-exclamation-circle"></i><%= errors.password.msg %></div>
                     <% } %>
-                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div>
-                    <div class="passwordErrorDiv errorDiv" style="color: rgb(255,0,0);" style="display:none;"></div> 
                 </div>
-                <!-- <div class="control-form">
-                    <label>CONFIRMAR CONTRASEÑA</label>
-                    <input type="password" name="password" class="control" placeholder="Ingrese contraseña">
-                </div> HACER VALIDACION-->
-                <div class="formErrorDiv errorDiv" style="color:red;" style="display:none;"></div>
+                
                 <div class="div-button-register">
-                    <button type="submit" class="button-form">CREAR CUENTA</button>
-                    <button type="reset" class="button-form">BORRAR</button>
+                    <button type="submit" class="button-form">
+                        <i class="fas fa-user-plus" style="margin-right: 8px;"></i>Crear cuenta
+                    </button>
                 </div>
+                
                 <div class="div-register-p">
                     <p>¿Ya tienes una cuenta? <a href="/user/login">Iniciar sesión</a></p>
                 </div>
             </div>
-
-            
-            
         </form>
     </main>
-    <%- include('partials/footerUsers') %>
+    
+    <%- include('partials/footer') %>
 </body>
-<!--  Scripts -->
 <script src="/js/registerValidation.js"></script>
 </html>

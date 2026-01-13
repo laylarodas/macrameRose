@@ -1,53 +1,80 @@
 <header id="headerSection">
+    <!-- Mobile Header -->
     <div id="header-mobile">
         <div id="burguer-menu">
             <i class="fas fa-bars"></i>
-            <p>INICIO</p>
+            <p>Menú</p>
         </div>
-        <div id="header-search"><i class="fas fa-search"></i></div>
+        <a href="/" class="mobile-logo">
+            <img src="/img/logo.jpg" alt="Macramé Rose" style="height: 40px;">
+        </a>
+        <a href="/cart" class="mobile-cart">
+            <i class="fas fa-shopping-bag"></i>
+        </a>
     </div>
-    <div id="top-header" class="hidden">
+    
+    <!-- Top Header: Search & Account -->
+    <div id="top-header">
         <div id="div-search">
             <form action="/search" method="GET" class="form-search-header">
-                <input type="text" name="keywords" placeholder="Buscar" class="area-search">
-                <button type="submit" class="button-search"><i class="fas fa-search"></i>
+                <input type="text" name="keywords" placeholder="Buscar productos..." class="area-search">
+                <button type="submit" class="button-search">
+                    <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
         <div id="login-register">
             <% if (locals.isLogged) { %>
                 <ul>
-                    <li class="border-right hover-color">
+                    <li>
                         <a href="/user/profile" class="profile-a">
                             <img src="/img/avatars/<%= locals.userLogged.avatar %>" class="user-avatar-header" alt="avatar">
-                        <strong>HOLA <%= locals.userLogged.userName.toUpperCase() %>!</strong></a>
+                            <strong>Hola, <%= locals.userLogged.userName %></strong>
+                        </a>
                     </li>
-                    <li class="hover-color logout-li"><a href="/user/logout">CERRAR SESIÓN</a></li>
+                    <li>
+                        <a href="/user/logout">
+                            <i class="fas fa-sign-out-alt"></i> Salir
+                        </a>
+                    </li>
                 </ul>
             <% } else { %>
                 <ul>
-                    <li class="border-right hover-color"><i class="fas fa-user"></i><a href="/user/register"><strong> CREAR CUENTA</strong></a></li>
-                    <li class="hover-color"><a href="/user/login">INICIAR SESIÓN</a></li>
+                    <li>
+                        <a href="/user/register">
+                            <i class="fas fa-user-plus"></i> Crear cuenta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user/login">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                        </a>
+                    </li>
                 </ul>
             <% } %> 
         </div>
     </div>
+    
+    <!-- Main Header: Logo & Navigation -->
     <div id="bottom-header">
         <div class="div-logo">
-            <a href="/"><img src="/img/logo.jpg" alt="logo" id="logo"></a>
+            <a href="/"><img src="/img/logo.jpg" alt="Macramé Rose" id="logo"></a>
         </div>
-        <div class="div-nav-bar">
+        <nav class="div-nav-bar">
             <ul>
-                <li class="border-bottom" ><a href="/">INICIO</a></li>
-                <li class="border-bottom" ><a href="/products">PRODUCTOS</a></li>
-                <li class="hidden border-bottom"><a href="#"></i>ENVÍOS</a></li>
-                <li class="hidden border-bottom"><a href="#">CONTACTO</a></li>
-                <li class="hidden border-bottom"><a href="#"></i>ABOUT US</a></li>
-                <li class="cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>CARRITO</a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/shipping">Envíos</a></li>
+                <li><a href="/contact">Contacto</a></li>
+                <li><a href="/about">Nosotros</a></li>
+                <li class="cart"><a href="/cart"><i class="fas fa-shopping-bag"></i> Carrito</a></li>
             </ul>
-        </div>
-        <div class="div-cart hidden">
-            <a href="/cart"><img src="/img/icon-shp.png" alt="shop-icon"></a>
+        </nav>
+        <div class="div-cart">
+            <a href="/cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Carrito</span>
+            </a>
         </div>
     </div>
 </header>
